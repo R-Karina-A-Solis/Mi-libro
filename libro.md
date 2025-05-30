@@ -30,6 +30,7 @@
   - [¿Para qué sirven las estructuras de datos?](#para-qué-sirven-las-estructuras-de-datos)
 - [Programación en c++](#programación-en-c)
   - [Mi primer programa](#mi-primer-programa)
+- [Operadores](#operadores)
 
 # Introducción
 
@@ -100,6 +101,12 @@ El estudio de las estructuras de datos es fundamental en la programación, ya qu
 
 ## ¿Para qué sirven las estructuras de datos?
 
+Las estructuras de datos cumplen un rol esencial en el desarrollo de programas eficientes y funcionales. Su principal utilidad radica en la organización lógica y estructurada de la información, lo cual permite optimizar el uso de los recursos del sistema y mejorar el rendimiento de los algoritmos.
+
+A través de las estructuras de datos, es posible realizar operaciones complejas como el almacenamiento dinámico, la gestión de grandes volúmenes de información, el acceso rápido a elementos específicos, así como la implementación de técnicas de búsqueda, ordenamiento y recorrido. Además, muchas soluciones informáticas dependen directamente de la correcta elección y manipulación de estas estructuras.
+Ya sean las más utilizadas comúnmente -como las variables, arrays, conjuntos o clases- o las diseñadas para un propósito específico -árboles, grafos, tablas, etc.-, una estructura de datos nos permite trabajar en un algo nivel de abstracción almacenando información para luego acceder a ella, modificarla y manipularla.
+
+
 Las estructuras de datos desempeñan un papel fundamental en el desarrollo de programas eficientes y funcionales. Su principal objetivo es organizar la información de manera lógica y estructurada, lo que permite optimizar el uso de los recursos del sistema, como la memoria y el tiempo de procesamiento, y mejorar significativamente el rendimiento de los algoritmos implementados.
 
 Mediante el uso adecuado de estructuras de datos, es posible llevar a cabo operaciones complejas como el almacenamiento dinámico de información, la gestión y manipulación de grandes volúmenes de datos, el acceso rápido y directo a elementos específicos, así como la implementación de técnicas eficientes de búsqueda, ordenamiento y recorrido. La correcta selección y aplicación de estas estructuras es crucial para garantizar que las soluciones informáticas sean efectivas y escalables.
@@ -124,68 +131,65 @@ int main() {
     return 0;
 }
 ```
-*Explicación*
+**Explicación**
  
-1️⃣ `#include <iostream>`
+1. `#include <iostream>`
 
-- **¿Qué hace?**  
-  Le dice al programa que use una **biblioteca llamada iostream**, que permite mostrar mensajes en la pantalla o recibir datos del teclado.
+**¿Qué hace?**  
+    Le dice al programa que use una **biblioteca llamada iostream**, que permite mostrar mensajes en la pantalla o recibir datos del teclado.
 
-- ✅ **Ejemplo real**: es como decirle a tu programa: *“Usa las herramientas necesarias para poder imprimir mensajes.”*
+  ✅ **Ejemplo real**: es como decirle a tu programa: *“Usa las herramientas necesarias para poder imprimir mensajes.”*
 
----
 
-2️⃣ `using namespace std;`
+1. `using namespace std;`
 
-- **¿Qué hace?**  
-  Le indica al programa que puede usar funciones como `cout` sin tener que escribir `std::cout`.
+**¿Qué hace?**  
+    Le indica al programa que puede usar funciones como `cout` sin tener que escribir `std::cout`.
 
-- ✅ **Traducción fácil**: le dice a C++ que use un “espacio de nombres” donde están los comandos comunes.
+  ✅ **Traducción fácil**: le dice a C++ que use un “espacio de nombres” donde están los comandos comunes.
 
----
 
-3️⃣ `int main() {`
 
-- **¿Qué hace?**  
-  Aquí empieza el programa.  
+1. `int main() {`
+
+**¿Qué hace?**  
+    Aquí empieza el programa.  
   **`main()`** es el punto de inicio: es donde el programa comienza a ejecutarse.
 
-- ✅ **Piensa en esto como el corazón del programa.**
+  ✅  **Piensa en esto como el corazón del programa**
 
----
+1. `cout << "Hola, mundo!" << endl;`
 
-4️⃣ `cout << "Hola, mundo!" << endl;`
+**¿Qué hace?**  
+    Imprime el mensaje `"Hola, mundo!"` en la pantalla.
 
-- **¿Qué hace?**  
-  Imprime el mensaje `"Hola, mundo!"` en la pantalla.
-
-- 🧠 `cout`: Significa "console output" (salida por consola).  
-- 🧠 `<<`: Se usa para enviar texto a la consola.  
-- 🧠 `endl`: Hace un salto de línea, como presionar ENTER.
+    🧠 `cout`: Significa "console output" (salida por consola).  
+    🧠 `<<`: Se usa para enviar texto a la consola.  
+    🧠 `endl`: Hace un salto de línea, como presionar ENTER.
 
 - ✅ **Lo que verás en pantalla**:
 
+ 
   ```
-  Hola, mundo!
+    Hola, mundo!
   ```
 
----
 
-5️⃣ `return 0;`
+1. `return 0;`
 
-- **¿Qué hace?**  
-  Le dice al sistema que el programa terminó **correctamente**.
+**¿Qué hace?**  
+    Le dice al sistema que el programa terminó **correctamente**.
 
-- ✅ `0` significa “todo bien”.
-
----
-
-6️⃣ `}`
-
-- **¿Qué hace?**  
-  Cierra la función `main`.  
-  Es el final del programa.
-
----
+    ✅ `0` significa “todo bien”.
 
 
+
+1. `}`
+
+  **¿Qué hace?**  
+    Cierra la función `main`.  
+    Es el final del programa.
+
+
+
+# Operadores
