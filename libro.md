@@ -26,21 +26,22 @@
 2. [Qué es programación](#que-es-programación)
     2.1. [Qué es un lenguaje de programación](#qué-es-un-lenguaje-de-programación)
 3. [Programación en c++](programación-en-c++)
+   3.1 [Mi primer programa](mi-primer-programa)
 4. [Operadores](#operadores)
-1. [Estructuras de Control](#estructuras-de-control)
-2. [Funciones](#funciones)
-3. [Arrays](#arrays)
-4. [Arreglos](#arreglos)
-5. [Pilas](#pilas)
-6.  [Colas](#colas)
-7.  [Operadores `&` y `*`](#operadores--y-)
-8.  [Operador `->`](#operador-)
-9.  [Listas Enlazadas](#listas-enlazadas)
-10. [Listas Doblemente Enlazadas](#listas-doblemente-enlazadas)
-11. [Colas (Revisitado)](#colas-revisitado)
-12. [Pilas (Revisitado)](#pilas-revisitado)
-13. [Recursión](#recursión)
-14. [Conclusión](#conclusión)
+5. [Estructuras de Control](#estructuras-de-control)
+6. [Funciones](#funciones)
+7. [Arrays](#arrays)
+8. [Arreglos](#arreglos)
+9.  [Pilas](#pilas)
+10. [Colas](#colas)
+11. [Operadores `&` y `*`](#operadores--y-)
+12. [Operador `->`](#operador-)
+13. [Listas Enlazadas](#listas-enlazadas)
+14. [Listas Doblemente Enlazadas](#listas-doblemente-enlazadas)
+15. [Colas (Revisitado)](#colas-revisitado)
+16. [Pilas (Revisitado)](#pilas-revisitado)
+17. [Recursión](#recursión)
+18. [Conclusión](#conclusión)
 
 # Introducción
 ** Este libro trata...
@@ -100,5 +101,82 @@ Los lenguajes pueden clasificarse en:
 - **Lenguajes de bajo nivel**: Más cercanos al lenguaje máquina, como el lenguaje ensamblador.
 - **Lenguajes de alto nivel**: Más cercanos al lenguaje humano, más fáciles de escribir y entender, como Python o Java.
 
-### Programación en c++
+# Programación en c++
+La programación en C++ es el proceso de escribir instrucciones utilizando el lenguaje de programación C++ para que una computadora realice tareas específicas. C++ es un lenguaje de propósito general, compilado y multiparadigma, lo que significa que permite programar de diferentes maneras, incluyendo programación estructurada, orientada a objetos y, en algunos casos, programación funcional.
+
+Fue creado por Bjarne Stroustrup a principios de la década de 1980 como una extensión del lenguaje C, incorporando características adicionales como clases, objetos, herencia y manejo de excepciones.
+
+### Mi primer programa
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    cout << "Hola, mundo!" << endl;
+    return 0;
+}
+```
+# Explicación 
+### 1️⃣ `#include <iostream>`
+
+- **¿Qué hace?**  
+  Le dice al programa que use una **biblioteca llamada iostream**, que permite mostrar mensajes en la pantalla o recibir datos del teclado.
+
+- ✅ **Ejemplo real**: es como decirle a tu programa: *“Usa las herramientas necesarias para poder imprimir mensajes.”*
+
+---
+
+### 2️⃣ `using namespace std;`
+
+- **¿Qué hace?**  
+  Le indica al programa que puede usar funciones como `cout` sin tener que escribir `std::cout`.
+
+- ✅ **Traducción fácil**: le dice a C++ que use un “espacio de nombres” donde están los comandos comunes.
+
+---
+
+### 3️⃣ `int main() {`
+
+- **¿Qué hace?**  
+  Aquí empieza el programa.  
+  **`main()`** es el punto de inicio: es donde el programa comienza a ejecutarse.
+
+- ✅ **Piensa en esto como el corazón del programa.**
+
+---
+
+### 4️⃣ `cout << "Hola, mundo!" << endl;`
+
+- **¿Qué hace?**  
+  Imprime el mensaje `"Hola, mundo!"` en la pantalla.
+
+- 🧠 `cout`: Significa "console output" (salida por consola).  
+- 🧠 `<<`: Se usa para enviar texto a la consola.  
+- 🧠 `endl`: Hace un salto de línea, como presionar ENTER.
+
+- ✅ **Lo que verás en pantalla**:
+
+  ```
+  Hola, mundo!
+  ```
+
+---
+
+### 5️⃣ `return 0;`
+
+- **¿Qué hace?**  
+  Le dice al sistema que el programa terminó **correctamente**.
+
+- ✅ `0` significa “todo bien”.
+
+---
+
+### 6️⃣ `}`
+
+- **¿Qué hace?**  
+  Cierra la función `main`.  
+  Es el final del programa.
+
+---
+
 
