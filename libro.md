@@ -22,15 +22,20 @@
 
 # Índice
 
-- [Índice](#índice)
-- [Introducción](#introducción)
-- [¿Qué es programación?](#qué-es-programación)
-  - [¿Qué es un lenguaje de programación?](#qué-es-un-lenguaje-de-programación)
-  - [¿Qué es la estructura de datos?](#qué-es-la-estructura-de-datos)
-  - [¿Para qué sirven las estructuras de datos?](#para-qué-sirven-las-estructuras-de-datos)
-- [Programación en c++](#programación-en-c)
-  - [Mi primer programa](#mi-primer-programa)
-- [Operadores](#operadores)
+[Índice](#índice)
+[Introducción](#introducción)
+[1. ¿Qué es programación?](#1-qué-es-programación)
+  [1.1 ¿Qué es un lenguaje de programación?](#11-qué-es-un-lenguaje-de-programación)
+  [1.2 ¿Qué es la estructura de datos?](#12-qué-es-la-estructura-de-datos)
+  [1.3 ¿Para qué sirven las estructuras de datos?](#13-para-qué-sirven-las-estructuras-de-datos)
+[2. Programación en c++](#2-programación-en-c)
+  [Mi primer programa](#mi-primer-programa)
+[3. Operadores](#3-operadores)
+  [¿Para que sirven los operadores?](#para-que-sirven-los-operadores)
+  [Operadores aritméticos:](#operadores-aritméticos)
+  [Operadores de comparación o relacionales:](#operadores-de-comparación-o-relacionales)
+[4. Estructuras de Control](#estructuras-de-control)
+[5. Arreglos](#arreglos)
 
 # Introducción
 
@@ -40,7 +45,7 @@ Se inicia con una introducción a la programación, el lenguaje C++ y los concep
 
 Cada capítulo combina teoría y ejemplos prácticos, orientando al lector hacia una comprensión integral y aplicada del lenguaje C++.
 
-# ¿Qué es programación?
+# 1. ¿Qué es programación?
 
 La programación informática es el arte del proceso por el cual se limpia, codifica, traza y protege el código fuente de programas computacionales, en otras palabras, es indicarle a la computadora lo que tiene que hacer. 
 
@@ -64,7 +69,7 @@ Algunas de ellas pueden agruparse y de ese modo recibir un nombre para tener la 
 > ### 💻 *“La programación es cómo haces que las computadoras resuelvan problemas.”*
 
 
-## ¿Qué es un lenguaje de programación?
+## 1.1 ¿Qué es un lenguaje de programación?
 
 Un **lenguaje de programación** es un conjunto de reglas y símbolos que permiten a los seres humanos escribir instrucciones que una computadora puede entender y ejecutar. Es el medio de comunicación entre el programador y la máquina.
 
@@ -90,7 +95,7 @@ Algunos ejemplos comunes de lenguajes de programación son:
 - **Ruby**
 - **Go**
 
-## ¿Qué es la estructura de datos?
+## 1.2 ¿Qué es la estructura de datos?
 
 Una estructura de datos es una forma organizada y eficiente de almacenar, gestionar y acceder a la información dentro de un programa. Su propósito principal es facilitar el procesamiento de grandes cantidades de datos, permitiendo realizar operaciones como inserción, eliminación, búsqueda y ordenamiento de manera óptima.
 
@@ -99,7 +104,7 @@ Las estructuras de datos pueden clasificarse en primitivas (como enteros, caract
 El estudio de las estructuras de datos es fundamental en la programación, ya que permite diseñar algoritmos más eficientes y comprender cómo se gestiona la memoria y el rendimiento en una aplicación.
 
 
-## ¿Para qué sirven las estructuras de datos?
+## 1.3 ¿Para qué sirven las estructuras de datos?
 
 Las estructuras de datos cumplen un rol esencial en el desarrollo de programas eficientes y funcionales. Su principal utilidad radica en la organización lógica y estructurada de la información, lo cual permite optimizar el uso de los recursos del sistema y mejorar el rendimiento de los algoritmos.
 
@@ -115,12 +120,12 @@ Las estructuras de datos pueden clasificarse en aquellas más comunes y generale
 
 En esencia, una estructura de datos proporciona un nivel de abstracción que facilita la organización, almacenamiento, acceso, modificación y manipulación de la información. Esta abstracción no solo simplifica el diseño de algoritmos, sino que también contribuye a mantener la claridad y modularidad del código, aspectos fundamentales en el desarrollo de software profesional.
 
-# Programación en c++
+# 2. Programación en c++
 La programación en C++ es el proceso de escribir instrucciones utilizando el lenguaje de programación C++ para que una computadora realice tareas específicas. C++ es un lenguaje de propósito general, compilado y multiparadigma, lo que significa que permite programar de diferentes maneras, incluyendo programación estructurada, orientada a objetos y, en algunos casos, programación funcional.
 
 Fue creado por Bjarne Stroustrup a principios de la década de 1980 como una extensión del lenguaje C, incorporando características adicionales como clases, objetos, herencia y manejo de excepciones.
 
-## Mi primer programa
+## 2.1 Mi primer programa
 
 ```cpp
 #include <iostream>
@@ -141,7 +146,7 @@ int main() {
   ✅ **Ejemplo real**: es como decirle a tu programa: *“Usa las herramientas necesarias para poder imprimir mensajes.”*
 
 
-1. `using namespace std;`
+2. `using namespace std;`
 
 **¿Qué hace?**  
     Le indica al programa que puede usar funciones como `cout` sin tener que escribir `std::cout`.
@@ -150,7 +155,7 @@ int main() {
 
 
 
-1. `int main() {`
+3. `int main() {`
 
 **¿Qué hace?**  
     Aquí empieza el programa.  
@@ -158,7 +163,7 @@ int main() {
 
   ✅  **Piensa en esto como el corazón del programa**
 
-1. `cout << "Hola, mundo!" << endl;`
+4. `cout << "Hola, mundo!" << endl;`
 
 **¿Qué hace?**  
     Imprime el mensaje `"Hola, mundo!"` en la pantalla.
@@ -175,7 +180,7 @@ int main() {
   ```
 
 
-1. `return 0;`
+5. `return 0;`
 
 **¿Qué hace?**  
     Le dice al sistema que el programa terminó **correctamente**.
@@ -184,12 +189,585 @@ int main() {
 
 
 
-1. `}`
+6. `}`
 
   **¿Qué hace?**  
     Cierra la función `main`.  
     Es el final del programa.
 
+# 3. Operadores
+
+Los operadores son símbolos **(+, -, *, /, <, >, %, )** especiales que realizan operaciones sobre uno o más operandos. Los operandos pueden ser variables, valores o expresiones. Los operadores permiten realizar diversas operaciones, como aritméticas, lógicas, relacionales, de asignación, entre otras.
+
+## 3.1 ¿Para que sirven los operadores?
+Los operadores en programación sirven para realizar diversas operaciones sobre datos, variables o valores. Cada tipo de operador tiene una función específica y se utiliza en diferentes contextos para lograr ciertos resultados.
+
+**Operadores más comunes:**
+
+**Operadores Aritméticos:**
+Permiten realizar operaciones matemáticas básicas, como suma, resta, multiplicación, división y módulo. Son esenciales para realizar cálculos numéricos en programas.
+Operadores de Comparación o Relacionales:
+Se utilizan para comparar valores y producir resultados booleanos (True o False). Son fundamentales para tomar decisiones en base a condiciones en un programa.
+**Operadores Lógicos:**
+Permiten combinar o invertir valores booleanos. Son útiles para evaluar expresiones lógicas y tomar decisiones basadas en múltiples condiciones.
+Estos tres tipos de operadores son los más comunes. Aunque existen algunos más:
+**Operadores de Asignación:**
+Sirven para asignar valores a variables. También existen operadores de asignación combinados con operadores aritméticos, facilitando la actualización de variables en una única instrucción.
+**Operadores de Pertenencia e Identidad:**
+in se utiliza para verificar si un valor está presente en una secuencia (como una lista o cadena). is se utiliza para verificar si dos objetos son el mismo objeto en la memoria.
+
+Estos operadores son fundamentales en la construcción de algoritmos y lógica de programación. Permiten a los desarrolladores realizar cálculos, comparaciones y manipulaciones de datos, lo que es esencial para la creación de programas que resuelven problemas específicos.
+
+### 3.2 Operadores aritméticos:
+Se utilizan para realizar operaciones matemáticas en programación.
+`+` **(suma)**: Se utiliza para sumar dos valores.  
+`-` **(resta)**: Se utiliza para restar el valor de la derecha del valor de la izquierda.  
+`*` **(multiplicación)**: Se utiliza para multiplicar dos valores.  
+`/` **(división)**: Se utiliza para dividir el valor de la izquierda por el valor de la derecha.  
+`%` **(módulo)**: Devuelve el resto de la división del valor de la izquierda por el valor de la derecha.  
+`//` **(división entera)**: Devuelve el cociente entero de la división del valor de la izquierda por el valor de la derecha.  
 
 
-# Operadores
+### 3.3 Operadores de comparación o relacionales:
+Se utilizan para comparar dos valores y devolver un resultado booleano que indica la relación entre esos valores.
+
+`==` **(igual a)**: Devuelve True si los dos valores son iguales; de lo contrario, devuelve False.  
+`!=` **(diferente de)**: Devuelve True si los dos valores no son iguales; de lo contrario, devuelve False.  
+`<` **(menor que)**: Devuelve True si el valor de la izquierda es menor que el valor de la derecha; de lo contrario, devuelve False.  
+`>` **(mayor que)**: Devuelve True si el valor de la izquierda es mayor que el valor de la derecha; de lo contrario, devuelve False.  
+`<=` **(menor o igual que)**: Devuelve True si el valor de la izquierda es menor o igual al valor de la derecha; de lo contrario, devuelve False.  
+`>=` **(mayor o igual que)**: Devuelve True si el valor de la izquierda es mayor o igual al valor de la derecha; de lo contrario, devuelve False.  
+`**` **(exponenciación)**: Se utiliza para elevar el valor de la izquierda a la potencia del valor de la derecha.
+
+**Ejemplo**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int a, b, c;
+    cout << "Ingresa tres numeros: " << endl;
+    cin >> a >> b >> c;
+
+    double promedio = (a + b + c) / 3.0;
+
+    cout << "El promedio es: " << promedio << endl;
+    return 0;
+}
+```
+**Explicación**
+
+1. 
+```cpp
+int a, b, c;
+```
+**Declaración de tres variables enteras** que almacenarán los valores ingresados por el usuario.
+
+2. 
+```cpp
+cout << "Ingresa tres numeros: ";
+```
+**Salida estándar.** Solicita al usuario ingresar los números.
+
+3. 
+```cpp
+cin >> a >> b >> c;
+```
+**Entrada estándar.** Captura tres números consecutivos ingresados desde el teclado.
+
+4. 
+```cpp
+double promedio = (a + b + c) / 3.0;
+```
+**Se realiza la suma** de las tres variables y se divide entre `3.0`.
+
+- **Uso de `3.0` en vez de `3`**: fuerza una división de punto flotante para evitar truncamiento por división entera.
+- El resultado se guarda en una variable de tipo `double` para manejar posibles decimales.
+
+5. 
+```cpp
+cout << "El promedio es: " << promedio << endl;
+```
+**Imprime el resultado** del cálculo con una etiqueta descriptiva.  
+`endl` agrega un salto de línea al final de la salida.
+
+6.
+```cpp
+return 0;
+```
+**Indica que el programa finalizó correctamente.**  
+Esto es una convención del sistema operativo para señalar que no hubo errores.
+
+**Práctica 1: Calaculadora basica**
+Escribe un programa que lea dos números enteros y muestre el resultado de sumarlos, restarlos, multiplicarlos y dividirlos.
+
+```cpp
+#include <iostream>
+using namespace std;
+int main() {
+    int num1, num2;
+
+    cout << "Ingrese el primer número: ";
+    cin >> num1;
+
+    cout << "Ingrese el segundo número: ";
+    cin >> num2;
+
+    cout << "\nResultados:\n";
+    cout << "Suma: " << num1 + num2 << endl;
+    cout << "Resta: " << num1 - num2 << endl;
+    cout << "Multiplicación: " << num1 * num2 << endl;
+    cout << "División (entera): " << num1 / num2 << endl;
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese el primer número: 10
+Ingrese el segundo número: 2
+
+Resultados:
+Suma: 12
+Resta: 8
+Multiplicación: 20
+División: 5
+
+**Práctica 2: Par o impar**
+Pide un número entero e indica si es par o impar.
+
+ ```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numero;
+
+    cout << "Ingrese un número: ";
+    cin >> numero;
+
+    if (numero % 2 == 0) {
+        cout << "El número es par." << endl;
+    } else {
+        cout << "El número es impar." << endl;
+    }
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese un número: 8
+El número es par.
+
+**Práctica 3: Comparación de edades**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int edad1, edad2;
+
+    cout << "Ingrese la primera edad: ";
+    cin >> edad1;
+
+    cout << "Ingrese la segunda edad: ";
+    cin >> edad2;
+
+    if (edad1 > edad2) {
+        cout << "La primera edad es mayor que la segunda." << endl;
+    } else if (edad1 < edad2) {
+        cout << "La segunda edad es mayor que la primera." << endl;
+    } else {
+        cout << "Ambas edades son iguales." << endl;
+    }
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese la primera edad: 19
+Ingrese la segunda edad: 25
+La segunda edad es mayor que la primera.
+
+# 4. Estructura de control
+
+En C++, existen seis estructuras de control fundamentales que permiten controlar el flujo de ejecución de un programa. Estas se dividen en **estructuras condicionales** y **estructuras repetitivas (bucles)**. Conocerlas es esencial para crear programas eficientes y dinámicos.
+
+## 4.1 ¿Que son las estructuras de control?
+
+Son herramientas que permiten decidir **qué instrucciones se ejecutan, cuándo y cómo**, basándose en condiciones. Se recomienda dominar el uso de operadores antes de estudiar este tema, ya que son fundamentales para establecer condiciones lógicas.
+
+### 4.1.1 Estructuras Condicionales
+
+Permiten ejecutar diferentes bloques de código dependiendo del cumplimiento de una condición lógica.
+
+1. `if`
+
+Es la estructura más básica. Evalúa una condición, y si se cumple, ejecuta el bloque correspondiente.
+
+2. `if...else`
+
+Agrega una alternativa para ejecutar un bloque diferente cuando la condición no se cumple.
+
+3. `if...else if...else`
+
+Permite evaluar múltiples condiciones de forma secuencial. Solo se ejecuta el primer bloque cuya condición sea verdadera.
+
+4. `switch...case`
+
+Evalúa una sola variable contra diferentes valores posibles. Es útil para manejar múltiples opciones y mejora la legibilidad del código al evitar repeticiones innecesarias.
+
+### 4.1.2 Estructuras Repetitivas (Bucles)
+
+Permiten ejecutar un bloque de código de manera repetitiva, ya sea mientras se cumpla una condición o durante un número determinado de veces.
+
+1. `while`
+
+Ejecuta un bloque de instrucciones mientras una condición sea verdadera. La condición se evalúa antes de cada iteración.
+
+2. `do...while`
+
+Ejecuta el bloque al menos una vez, ya que la condición se evalúa después de ejecutar el código. Ideal cuando se necesita que la acción ocurra una vez antes de verificar.
+
+3. `for`
+
+Es un bucle con tres componentes definidos: inicialización, condición y actualización. Es útil cuando se conoce de antemano cuántas veces debe repetirse un proceso.
+
+**Ejemplo**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nota;
+    cout << "Ingresa la nota: ";
+    cin >> nota;
+
+    if (nota > 10) {
+        cout << "Aprobado";
+    } else {
+        cout << "Desaprobado";
+    }
+
+    return 0;
+}
+```
+**Explicación**
+
+1. 
+```cpp
+#include <iostream>
+```
+Permite usar entrada y salida (cin, cout) en C++.
+
+2. 
+```cpp
+using namespace std;
+```
+Evita tener que escribir std:: antes de cin y cout.
+3. 
+```cpp
+int main()
+```
+Función principal donde empieza la ejecución del programa.
+4. 
+```cpp
+int nota;
+```
+Se declara una variable entera para guardar la nota del estudiante.
+
+5. **Entrada del usuario:**
+```cpp
+cout << "Ingresa la nota: ";
+cin >> nota;
+```
+Muestra un mensaje y espera que el usuario escriba un número.
+
+6. **Condición if-else:**
+```cpp
+if (nota > 10) {
+    cout << "Aprobado";
+} else {
+    cout << "Desaprobado";
+}
+```
+Si la nota es mayor que 10, el programa muestra "Aprobado".
+
+Si la nota es 10 o menor, muestra "Desaprobado".
+
+7. 
+```cpp
+return 0;
+```
+Termina el programa correctamente.
+
+**Practica 1: Mayor de dos números**
+Pide dos números al usuario y muestra cuál es mayor, o si ambos son iguales.
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int num1, num2;
+
+    cout << "Ingrese el primer número: ";
+    cin >> num1;
+
+    cout << "Ingrese el segundo número: ";
+    cin >> num2;
+
+    if (num1 > num2) {
+        cout << "El primer número es mayor." << endl;
+    } else if (num2 > num1) {
+        cout << "El segundo número es mayor." << endl;
+    } else {
+        cout << "Ambos números son iguales." << endl;
+    }
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese el primer número: 12
+Ingrese el segundo número: 8
+El primer número es mayor.
+
+**Práctica 2: Calificación con mensaje**
+Pide una nota (de 0 a 20) e imprime un mensaje según el siguiente criterio:
+
+- 18 a 20: Excelente  
+- 14 a 17: Bueno  
+- 11 a 13: Regular  
+- 0 a 10: Desaprobado
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int nota;
+
+    cout << "Ingrese la nota (0 a 20): ";
+    cin >> nota;
+
+    if (nota >= 18 && nota <= 20) {
+        cout << "Excelente" << endl;
+    } else if (nota >= 14 && nota <= 17) {
+        cout << "Bueno" << endl;
+    } else if (nota >= 11 && nota <= 13) {
+        cout << "Regular" << endl;
+    } else if (nota >= 0 && nota <= 10) {
+        cout << "Desaprobado" << endl;
+    } else {
+        cout << "Nota fuera de rango." << endl;
+    }
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese la nota (0 a 20): 15
+Bueno
+
+**Práctica 3: Contar hasta N**
+Pide al usuario un número entero positivo `N` y muestra los números del 1 hasta `N`.
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int N;
+    int contador = 1;
+
+    cout << "Ingrese un número entero positivo: ";
+    cin >> N;
+
+    while (contador <= N) {
+        cout << contador << " ";
+        contador++;
+    }
+
+    cout << endl;
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese un número entero positivo: 5
+1 2 3 4 5
+
+# 5. Funciones
+una función es un bloque de código independiente que realiza una tarea específica. Puedes pensar en una función como una “mini-máquina” dentro de tu programa: tú le das una entrada (si necesita), ella hace algo con esa entrada, y luego te da una salida (si aplica).
+Las funciones se utilizan para organizar el código de manera más clara, estructurada y reutilizable. Son una parte fundamental de cualquier lenguaje de programación moderno, incluyendo C++, porque permiten dividir un problema complejo en partes más pequeñas y manejables.
+
+**¿Para qué sirven las funciones?**
+1. 🧹 Organizar el código
+En lugar de escribir todo en una sola gran secuencia, puedes dividir tu programa en varias funciones que cada una haga una parte del trabajo. Esto hace que tu código sea más limpio, más legible y más ordenado.
+
+2. 🔁 Evitar la repetición (reutilizar código)
+Si necesitas hacer la misma operación varias veces (como sumar dos números o mostrar un saludo), puedes escribir una función una sola vez y llamarla todas las veces que la necesites. Así no repites código innecesario.
+
+3. 🧩 Dividir problemas grandes
+Cuando tienes un problema grande, como hacer una calculadora o un sistema de notas, lo mejor es dividir el problema en pasos pequeños. Cada uno de esos pasos se puede convertir en una función diferente.
+
+Por ejemplo:
+
+Una función que lea datos.
+
+Otra que los procese.
+
+Otra que muestre resultados.
+
+Esto se llama "modularidad", y ayuda a trabajar paso a paso.
+
+**Palabras reservadas**
+
+| `return`      | Devuelve un valor desde la función al lugar donde fue llamada |
+| `int`         | Indica que la función devuelve un número entero |
+| `float`       | Indica que la función devuelve un número decimal |
+| `double`      | Similar a `float`, pero con más precisión |
+| `char`        | Indica que devuelve un carácter |
+| `void`        | Indica que la función **no devuelve** ningún valor |
+| `main()`      | Es la función **principal** de todo programa en C++ |
+
+**Ejemplo**
+```cpp
+#include <iostream>
+using namespace std;
+
+float area(float pi, float radio) {
+    return pi * radio * radio;
+}
+
+int main() {
+    float pi = 3.14;
+    float radio;
+    float resultado;
+
+    cout << "Ingrese el radio del circulo: ";
+    cin >> radio;
+
+    resultado = area(pi, radio);
+
+
+    cout << "El area del circulo es: " << resultado << endl;
+
+    return 0;
+}
+```
+**Explicación**
+Este programa en C++ permite calcular el **área de un círculo** usando una **función** que recibe el valor de `pi` y el `radio` como parámetros.
+
+1. **Función area**
+```cpp
+float area(float pi, float radio) {
+    return pi * radio * radio;
+}
+```
+-Esta función se llama area.
+-Recibe dos parámetros: el valor de pi y el radio del círculo.
+-Devuelve un número decimal (tipo float).
+-Usa la fórmula del área del círculo: \[A = \pi \cdot r^2\]
+2. **Función principal main()**
+```cpp
+int main() {
+    float pi = 3.14;
+    float radio;
+    float resultado;
+
+    cout << "Ingrese el radio del circulo: ";
+    cin >> radio;
+
+    resultado = area(pi, radio);
+
+    cout << "El area del circulo es: " << resultado << endl;
+
+    return 0;
+}
+```
+Se declara pi con valor 3.14.
+
+Se pide al usuario el radio del círculo.
+
+Se llama a la función area() pasando pi y radio.
+
+Se muestra el resultado con cout.
+
+**Ejemplo de ejecución**
+Ingrese el radio del circulo: 5
+El area del circulo es: 78.5
+
+**Práctica 1: Calcular la potencia de un número (sin usar pow)**
+```cpp
+#include <iostream>
+using namespace std;
+
+int potencia(int base, int exponente) {
+    int resultado = 1;
+    for (int i = 0; i < exponente; i++) {
+        resultado *= base;
+    }
+    return resultado;
+}
+
+int main() {
+    int base, exponente;
+
+    cout << "Ingrese la base: ";
+    cin >> base;
+
+    cout << "Ingrese el exponente: ";
+    cin >> exponente;
+
+    int resultado = potencia(base, exponente);
+
+    cout << "El resultado de " << base << "^" << exponente << " es: " << resultado << endl;
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese la base: 2
+Ingrese el exponente: 3
+El resultado de 2^3 es: 8
+
+**Práctica 2: Sumar los dígitos de un número**
+```cpp
+#include <iostream>
+using namespace std;
+
+// Función que suma los dígitos de un número
+int sumaDigitos(int numero) {
+    int suma = 0;
+    while (numero != 0) {
+        suma += numero % 10;   // Extrae el último dígito
+        numero /= 10;          // Elimina el último dígito
+    }
+    return suma;
+}
+
+int main() {
+    int numero;
+
+    cout << "Ingrese un número: ";
+    cin >> numero;
+
+    int resultado = sumaDigitos(numero);
+
+    cout << "La suma de los dígitos es: " << resultado << endl;
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese un número: 1234
+La suma de los dígitos es: 10
+
+# Arreglos
+
+
+
+
+
+
+
+
+
+
