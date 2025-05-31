@@ -36,7 +36,7 @@
   [Operadores de comparación o relacionales:](#operadores-de-comparación-o-relacionales)
 [4. Estructuras de Control](#estructuras-de-control)
 [5. Arreglos](#arreglos)
-
+[6. Operadores & y *](operadores-&-y-*)
 # Introducción
 
 Este libro presenta una síntesis ordenada de los principales contenidos abordados durante el curso de programación en C++ y estructuras de datos. Su objetivo es consolidar los conocimientos adquiridos, facilitar su comprensión y servir como material de consulta para futuros estudios.
@@ -761,6 +761,299 @@ Ingrese un número: 1234
 La suma de los dígitos es: 10
 
 # Arreglos
+
+**¿Qué es un arreglo?**
+Un arreglo (también llamado vector o array) es una estructura de datos fundamental en programación que permite almacenar y organizar un conjunto de valores del mismo tipo bajo un solo nombre. Estos valores están organizados en una secuencia lineal, y cada valor puede ser accedido mediante un índice o posición numérica.
+
+**Características principales de los arreglos:**
+**Homogeneidad**: Todos los elementos del arreglo deben ser del mismo tipo (por ejemplo, todos enteros, todos caracteres, todos flotantes, etc.).
+
+**Acceso por índice:** Cada elemento dentro del arreglo está numerado consecutivamente, comenzando en la posición 0, lo que permite acceder directamente a cualquier valor usando su índice.
+
+**Tamaño fijo:** En lenguajes como C++ y C, el tamaño del arreglo debe definirse al declararlo y no puede cambiar durante la ejecución del programa.
+
+**Conceptos claves**
+
+| Concepto         | Ejemplo            | Explicación                 |
+|------------------|--------------------|-----------------------------|
+| Declarar arreglo | `int a[10];`       | Arreglo de 10 enteros       |
+| Inicializar arreglo | `int b[3] = {5,10,15};` | Arreglo con valores iniciales |
+| Asignar valor    | `a[0] = 7;`        | Asigna 7 al primer elemento |
+| Acceder a valor  | `int x = b[2];`    | Guarda 15 (tercer elemento) en x |
+| Índices válidos  | 0 a tamaño-1       | Ejemplo: para `a[10]`, índices 0-9 |
+
+**Ejemplo**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    // Declaración de un arreglo de 5 enteros
+    int numeros[5];
+
+    // Asignación de valores a cada posición
+    numeros[0] = 10;
+    numeros[1] = 20;
+    numeros[2] = 30;
+    numeros[3] = 40;
+    numeros[4] = 50;
+
+    // Acceso y muestra de los valores del arreglo
+    for(int i = 0; i < 5; i++) {
+        cout << "Elemento en posicion " << i << ": " << numeros[i] << endl;
+    }
+
+    return 0;
+}
+```
+**Explicación**
+
+1. `int numeros[5];`
+   Aquí se declara un arreglo de tipo entero  `(int) ` llamado numeros, con espacio para 5 elementos.
+Es importante recordar que en C++, los arreglos comienzan desde el índice  0. Por lo tanto,  `numeros[0] ` es el primer elemento y  `numeros[4]` el último.
+2. **Asignación de valores**
+```cpp
+numeros[0] = 10;
+numeros[1] = 20;
+numeros[2] = 30;
+numeros[3] = 40;
+numeros[4] = 50;
+```
+En estas líneas, se asigna manualmente un valor a cada una de las posiciones del arreglo. Cada línea toma una posición específica e introduce un número.
+3. **Recorrido con un bucle for** 
+```cpp
+for(int i = 0; i < 5; i++) {
+    cout << "Elemento en posicion " << i << ": " << numeros[i] << endl;
+}
+```
+Se utiliza un bucle `for` para recorrer todas las posiciones del arreglo, desde `i = 0` hasta `i = 4`. En cada iteración, se imprime el índice actual (`i`) y el valor almacenado en `numeros[i]`.
+
+**Ejecución**
+numeros[0] = 10;
+numeros[1] = 20;
+numeros[2] = 30;
+numeros[3] = 40;
+numeros[4] = 50;
+
+**Práctica 1: Invertir los elementos**
+Crear un programa que lea 8 números enteros en un arreglo y luego los muestre en orden inverso (del último al primero).
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numeros[8];
+
+    // Lectura de datos
+    cout << "Ingrese 8 numeros enteros:" << endl;
+    for (int i = 0; i < 8; i++) {
+        cin >> numeros[i];
+    }
+
+    // Mostrar en orden inverso
+    cout << "Los numeros en orden inverso son:" << endl;
+    for (int i = 7; i >= 0; i--) {
+        cout << numeros[i] << " ";
+    }
+
+    cout << endl;
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese 8 numeros enteros:
+10 20 30 40 50 60 70 80
+Los numeros en orden inverso son: 
+80 70 60 50 40 30 20 10 
+
+**Practica 2: Suma y producto escalar de dos arreglos**
+Escribe un programa que lea dos arreglos de 5 enteros, calcule un tercer arreglo con la suma elemento a elemento y muestre el producto escalar de ambos arreglos.
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    const int n = 5; 
+    int a[n], b[n];  
+    int suma[n];    
+
+    cout << "Ingrese los elementos del vector A y B:\n";
+    for (int i = 0; i < n; i++) {
+        cout << "a[" << i << "]: ";
+        cin >> a[i];
+        cout << "b[" << i << "]: ";
+        cin >> b[i];
+    }
+
+    int productoEscalar = 0;
+
+    cout << "\nSuma de elementos (a[i] + b[i]):\n";
+    for (int i = 0; i < n; i++) {
+        suma[i] = a[i] + b[i];
+        productoEscalar += a[i] * b[i];
+        cout << "suma[" << i << "] = " << suma[i] << endl;
+    }
+
+    cout << "\nProducto escalar: " << productoEscalar << endl;
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese los elementos del vector A y B:
+a[0]: 1
+b[0]: 2
+a[1]: 3
+b[1]: 4
+a[2]: 5
+b[2]: 6
+a[3]: 7
+b[3]: 8
+a[4]: 9
+b[4]: 10
+
+Suma de elementos (a[i] + b[i]):
+suma[0] = 3
+suma[1] = 7
+suma[2] = 11
+suma[3] = 15
+suma[4] = 19
+
+Producto escalar: 130
+
+# 6. Operadores `&` y `*`.
+
+En el lenguaje de programación C++, los operadores `&` y `*` son fundamentales para trabajar con **direcciones de memoria** y **punteros**, herramientas clave para el control preciso de los datos y su almacenamiento en la memoria del computador.
+
+**6.1. Operador `&` – Dirección de memoria**
+
+El operador `&` se conoce como **operador de dirección**. Su función principal es obtener la **dirección de memoria** de una variable.
+
+Cada vez que se declara una variable, el sistema operativo le asigna una ubicación específica en la memoria. El operador `&` permite acceder a esa ubicación.
+
+**Puntos clave:**
+
+- Permite trabajar con la posición física donde está almacenada la variable.
+- Es utilizado para asignar direcciones a punteros.
+- Es el primer paso para manipular datos de forma indirecta mediante punteros.
+- Se aplica solamente a **variables**, no a literales o expresiones directas.
+
+**6.2. Operador `*` – Puntero y desreferenciación**
+
+El operador `*` tiene dos usos principales y muy distintos en C++, dependiendo del contexto:
+
+1. **Declaración de punteros**
+
+Cuando se usa en una declaración de variable, el `*` indica que esa variable es un **puntero**, es decir, una variable que almacena una **dirección de memoria** en lugar de un valor directo.
+
+2. **Desreferenciación**
+
+Cuando se usa sobre un puntero ya declarado, el operador `*` permite **acceder al valor almacenado** en la dirección de memoria que contiene el puntero.  
+Este proceso se llama **desreferenciación**.
+
+**Puntos clave:**
+
+Permite leer o modificar datos que están almacenados en otra ubicación de memoria.
+Es indispensable para la manipulación dinámica de datos y estructuras como arreglos, cadenas y memoria dinámica (`new`/`delete`).
+El mal uso del operador `*` puede causar errores graves como **acceder a zonas de memoria no válidas** (errores de segmentación o *segmentation faults*).
+
+> ✅ Comprender estos operadores es esencial para dominar el manejo de punteros, una de las características más poderosas y delicadas de C++.
+
+**Ejemplo**
+```cpp
+#include <iostream>
+int main() {
+    int var = 10;
+    int* ptr = &var;
+    
+    std::cout << "El valor de var: " << var << std::endl;
+    std::cout << "La dirección de memoria de var: " << &var << std::endl;
+    std::cout << "El valor de ptr: " << ptr << std::endl;
+    std::cout << "El valor apuntado por ptr: " << *ptr << std::endl;
+
+    return 0;
+}
+```
+**🔍 Explicación**
+
+1. `int var = 10;`
+
+Se declara una variable entera llamada `var` y se le asigna el valor `10`.  
+El sistema operativo reserva una posición de memoria para almacenarla.
+
+2. `int* ptr = &var;`
+
+Se declara un puntero llamado `ptr`, que es de tipo `int*` (puntero a entero).  
+Este puntero almacena la **dirección de memoria** donde se encuentra `var`.  
+El operador `&var` obtiene esa dirección.
+
+3. `std::cout << "El valor de var: " << var << std::endl;`
+
+Se imprime el valor almacenado en `var`, que es `10`.
+
+4. `std::cout << "La dirección de memoria de var: " << &var << std::endl;`
+
+Se muestra la **dirección de memoria** en la que está almacenada la variable `var`.  
+El operador `&` permite acceder a esa dirección física.
+
+5. `std::cout << "El valor de ptr: " << ptr << std::endl;`
+
+Se imprime el contenido del puntero `ptr`.  
+Como `ptr` almacena la dirección de `var`, este valor coincidirá con `&var`.
+
+6. `std::cout << "El valor apuntado por ptr: " << *ptr << std::endl;`
+
+Aquí se utiliza el operador `*` para **desreferenciar** el puntero `ptr`.  
+Esto significa que accedemos al **valor almacenado** en la dirección que contiene `ptr`, es decir, el valor de `var`.
+
+**Ejemplo de ejecución**
+
+El valor de var: 10
+La dirección de memoria de var: 0x61ff08
+El valor de ptr: 0x61ff08
+El valor apuntado por ptr: 10
+
+**Práctica 1: Usar un puntero para acceder al valor de una variable**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int edad = 25;
+    int* ptr = &edad; // ptr almacena la dirección de edad
+
+    cout << "Direccion guardada en el puntero: " << ptr << endl;
+    cout << "Valor al que apunta el puntero: " << *ptr << endl;
+
+    return 0;
+}
+``` 
+**Ejemplo de ejecución**
+Direccion guardada en el puntero: 0x61fef8
+Valor al que apunta el puntero: 25
+
+**Práctica 2: Arreglo y puntero básico**
+```cpp
+#include <iostream>
+using namespace std;
+
+int main() {
+    int numeros[3] = {5, 10, 15};
+    int* ptr = numeros; // ptr apunta al primer elemento del arreglo
+
+    for (int i = 0; i < 3; i++) {
+        cout << "Elemento " << i << ": " << *(ptr + i) << endl;
+    }
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Elemento 0: 5
+Elemento 1: 10
+Elemento 2: 15
+
+
 
 
 
