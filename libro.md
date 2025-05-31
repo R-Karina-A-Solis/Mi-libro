@@ -22,21 +22,26 @@
 
 # Índice
 
-[Índice](#índice)
-[Introducción](#introducción)
-[1. ¿Qué es programación?](#1-qué-es-programación)
-  [1.1 ¿Qué es un lenguaje de programación?](#11-qué-es-un-lenguaje-de-programación)
-  [1.2 ¿Qué es la estructura de datos?](#12-qué-es-la-estructura-de-datos)
-  [1.3 ¿Para qué sirven las estructuras de datos?](#13-para-qué-sirven-las-estructuras-de-datos)
-[2. Programación en c++](#2-programación-en-c)
-  [Mi primer programa](#mi-primer-programa)
-[3. Operadores](#3-operadores)
-  [¿Para que sirven los operadores?](#para-que-sirven-los-operadores)
-  [Operadores aritméticos:](#operadores-aritméticos)
-  [Operadores de comparación o relacionales:](#operadores-de-comparación-o-relacionales)
-[4. Estructuras de Control](#estructuras-de-control)
-[5. Arreglos](#arreglos)
-[6. Operadores & y *](operadores-&-y-*)
+- [Índice](#índice)
+- [Introducción](#introducción)
+- [1. ¿Qué es programación?](#1-qué-es-programación)
+  - [1.1 ¿Qué es un lenguaje de programación?](#11-qué-es-un-lenguaje-de-programación)
+  - [1.2 ¿Qué es la estructura de datos?](#12-qué-es-la-estructura-de-datos)
+  - [1.3 ¿Para qué sirven las estructuras de datos?](#13-para-qué-sirven-las-estructuras-de-datos)
+- [2. Programación en c++](#2-programación-en-c)
+  - [2.1 Mi primer programa](#21-mi-primer-programa)
+- [3. Operadores](#3-operadores)
+  - [3.1 ¿Para que sirven los operadores?](#31-para-que-sirven-los-operadores)
+    - [3.2 Operadores aritméticos:](#32-operadores-aritméticos)
+    - [3.3 Operadores de comparación o relacionales:](#33-operadores-de-comparación-o-relacionales)
+- [4. Estructura de control](#4-estructura-de-control)
+  - [4.1 ¿Que son las estructuras de control?](#41-que-son-las-estructuras-de-control)
+    - [4.1.1 Estructuras Condicionales](#411-estructuras-condicionales)
+    - [4.1.2 Estructuras Repetitivas (Bucles)](#412-estructuras-repetitivas-bucles)
+- [5. Funciones](#5-funciones)
+- [Arreglos](#arreglos)
+- [6. Operadores `&` y `*`.](#6-operadores--y-)
+- [7. Operador -\>](#7-operador--)
 # Introducción
 
 Este libro presenta una síntesis ordenada de los principales contenidos abordados durante el curso de programación en C++ y estructuras de datos. Su objetivo es consolidar los conocimientos adquiridos, facilitar su comprensión y servir como material de consulta para futuros estudios.
@@ -1052,6 +1057,46 @@ int main() {
 Elemento 0: 5
 Elemento 1: 10
 Elemento 2: 15
+
+**Práctica 3: Intercambio de valores y uso de punteros para modificar variables**
+
+Escribe un programa que reciba dos números enteros, intercambie sus valores usando punteros, y luego muestre los valores intercambiados.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+void intercambiar(int* a, int* b) {
+    int temp = *a;
+    *a = *b;
+    *b = temp;
+}
+
+int main() {
+    int x, y;
+
+    cout << "Ingrese el primer numero: ";
+    cin >> x;
+    cout << "Ingrese el segundo numero: ";
+    cin >> y;
+
+    intercambiar(&x, &y);
+
+    cout << "Despues del intercambio:\n";
+    cout << "Primer numero: " << x << endl;
+    cout << "Segundo numero: " << y << endl;
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Ingrese el primer numero: 15
+Ingrese el segundo numero: 30
+Despues del intercambio:
+Primer numero: 30
+Segundo numero: 15
+
+# 7. Operador ->
 
 
 
