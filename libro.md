@@ -39,9 +39,16 @@
     - [4.1.1 Estructuras Condicionales](#411-estructuras-condicionales)
     - [4.1.2 Estructuras Repetitivas (Bucles)](#412-estructuras-repetitivas-bucles)
 - [5. Funciones](#5-funciones)
-- [Arreglos](#arreglos)
+- [6. Arreglos](#6-arreglos)
 - [6. Operadores `&` y `*`.](#6-operadores--y-)
 - [7. Operador -\>](#7-operador--)
+- [8. Listas enlazadas](#8-listas-enlazadas)
+- [10. Listas Enlazadas Dobles y Circulares](#10-listas-enlazadas-dobles-y-circulares)
+  - [10.1 Lista Doblemente Enlazada](#101-lista-doblemente-enlazada)
+  - [10.2 Listas circulares](#102-listas-circulares)
+  - [10.2.1. Lista Circular Simple](#1021-lista-circular-simple)
+  - [10.2.3.  Lista Circular Doble](#1023--lista-circular-doble)
+  - [10.3. Recorrido de las Listas](#103-recorrido-de-las-listas)
 # Introducción
 
 Este libro presenta una síntesis ordenada de los principales contenidos abordados durante el curso de programación en C++ y estructuras de datos. Su objetivo es consolidar los conocimientos adquiridos, facilitar su comprensión y servir como material de consulta para futuros estudios.
@@ -765,7 +772,7 @@ int main() {
 Ingrese un número: 1234
 La suma de los dígitos es: 10
 
-# Arreglos
+# 6. Arreglos
 
 **¿Qué es un arreglo?**
 Un arreglo (también llamado vector o array) es una estructura de datos fundamental en programación que permite almacenar y organizar un conjunto de valores del mismo tipo bajo un solo nombre. Estos valores están organizados en una secuencia lineal, y cada valor puede ser accedido mediante un índice o posición numérica.
@@ -1098,14 +1105,932 @@ Segundo numero: 15
 
 # 7. Operador ->
 
+Es una herramienta fundamental cuando se trabaja con **punteros a objetos**. Su función principal es permitir el acceso directo a los **miembros** (atributos o métodos) de un objeto a través de un puntero. 
 
+Este operador es una forma abreviada y mucho más cómoda para manipular objetos cuando se utilizan punteros, evitando la necesidad de desreferenciar manualmente el puntero.
 
+Cuando tienes un puntero que apunta a un objeto, el operador `->` te permite acceder directamente a sus miembros sin usar el operador `*` para desreferenciar el puntero antes.  
 
+En términos prácticos, el operador `->` combina dos acciones en una sola:
 
+1. **Desreferenciar el puntero:**  
+Equivalente a usar el operador `*` para obtener el objeto al que apunta el puntero.
 
+1. **Acceder al miembro del objeto:**  
+Equivalente a usar el operador `.` cuando trabajas con un objeto normal (no puntero).
 
+Se utiliza exclusivamente con punteros a objetos o estructuras.
+No puede usarse con variables que no sean punteros.
 
+Simplifica la sintaxis al evitar escribir (*puntero).miembro.
+Esto mejora la legibilidad del código y reduce errores.
 
+Permite acceder tanto a atributos (variables miembro) como a métodos (funciones miembro) del objeto al que apunta el puntero.
 
+Es fundamental en la programación orientada a objetos (POO) cuando se manejan punteros a instancias de clases.
+Por ejemplo, cuando se crean objetos dinámicamente en memoria usando new, normalmente se usan punteros, y el operador -> es la manera estándar de acceder a sus miembros.
+
+**¿Qué debes saber?**
+Se utiliza exclusivamente con punteros a objetos o estructuras.
+No puede usarse con variables que no sean punteros.
+
+Simplifica la sintaxis al evitar escribir `(*puntero).miembro.`
+Esto mejora la legibilidad del código y reduce errores.
+
+Permite acceder tanto a atributos (variables miembro) como a métodos (funciones miembro) del objeto al que apunta el puntero.
+
+Es fundamental en la programación orientada a objetos (POO) cuando se manejan punteros a instancias de clases.
+Por ejemplo, cuando se crean objetos dinámicamente en memoria usando `new`, normalmente se usan punteros, y el operador `->` es la manera estándar de acceder a sus miembros
+
+**Ejemplo**
+
+```cpp
+ #include <iostream>
+ struct Persona {
+ std::string nombre;
+ int edad;
+ void saludar() {
+ std::cout << "Hola, mi nombre es "
+ << nombre << " y tengo "
+ << edad << " a~nos."
+ << std::endl;
+ }
+ };
+ int main() {
+ Persona* ptrPersona = new Persona();
+ ptrPersona->nombre = "Juan";
+ ptrPersona->edad = 30;
+ std::cout << "Nombre: " << ptrPersona->nombre << std::endl;
+ std::cout << "Edad: " << ptrPersona->edad << std::endl;
+ ptrPersona->saludar();
+ delete ptrPersona;
+ return 0;
+ }
+```
+**Explicación**
+1. 
+```cpp 
+struct Persona {
+    std::string nombre;
+    int edad;
+    void saludar() {
+        std::cout << "Hola, mi nombre es "
+                  << nombre << " y tengo "
+                  << edad << " a~nos."
+                  << std::endl;
+    }
+};
+```
+Se define una estructura llamada `Persona`, que actúa como una clase simple.
+Contiene dos miembros de datos:
+`nombre` (una cadena de texto)
+`edad` (un número entero)
+Además, tiene una función miembro llamada `saludar()`, que muestra un mensaje con los datos de la persona.
+
+2.  
+```cpp
+ int main() {
+    Persona* ptrPersona = new Persona();
+```
+Se declara un puntero a un objeto `Persona`.
+Se reserva memoria dinámicamente con `new Persona()`, lo que crea un objeto Persona en el heap.
+`ptrPersona` apunta a ese objeto.
+
+3.  
+ ```cpp
+ ptrPersona->nombre = "Juan";
+    ptrPersona->edad = 30;
+```
+Se usan los operadores `->` para acceder a los miembros del objeto apuntado por el puntero `ptrPersona`.
+Se asignan valores al `nombre y edad`.
+
+4. 
+```cpp
+std::cout << "Nombre: " << ptrPersona->nombre << std::endl;
+    std::cout << "Edad: " << ptrPersona->edad << std::endl;
+```
+Se imprimen los valores asignados, accediendo a los miembros del objeto a través del puntero usando `->`.
+
+5.  
+```cpp
+ptrPersona->saludar();
+```
+Se llama a la función saludar() del objeto apuntado, usando también el operador `->`.
+
+6.  
+```cpp
+delete ptrPersona;
+```
+Se libera la memoria asignada con `new` para evitar fugas de memoria (uso correcto de `delete`).
+
+**Práctica 1**
+Define una estructura llamada **`Mascota`** que contenga dos campos: **nombre** (tipo `string`) y **edad** (tipo `int`). En la función **`main`**, crea un **puntero** a un objeto **`Mascota`**, asigna valores a sus miembros utilizando el operador **`->`** y muestra la información por consola. Luego, libera la memoria asignada.
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Mascota {
+    string nombre;
+    int edad;
+};
+
+int main() {
+    // Crear un puntero a una estructura Mascota
+    Mascota* ptrMascota = new Mascota();
+
+    // Asignar valores usando el operador ->
+    ptrMascota->nombre = "Luna";
+    ptrMascota->edad = 4;
+
+    // Mostrar los datos
+    cout << "Nombre de la mascota: " << ptrMascota->nombre << endl;
+    cout << "Edad de la mascota: " << ptrMascota->edad << " años" << endl;
+
+    // Liberar memoria
+    delete ptrMascota;
+
+    return 0;
+}
+```
+**Ejemplo de ejecución**
+Nombre de la mascota: Luna  
+Edad de la mascota: 4 años
+
+**Práctica 2**
+Definir una estructura llamada **`Empleado`** con dos miembros: **nombre** (tipo `string`) y **sueldo** (tipo `float`). Incluir una función miembro **`mostrarDatos()`** que imprima ambos valores. En el programa principal, crear un objeto dinámico de tipo **`Empleado`**, asignar valores usando el operador **`->`**, invocar el método **`mostrarDatos()`** usando también **`->`** y liberar la memoria con **`delete`**.
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Empleado {
+    string nombre;
+    float sueldo;
+
+    void mostrarDatos() {
+        cout << "Nombre del empleado: " << nombre << endl;
+        cout << "Sueldo: $" << sueldo << endl;
+    }
+};
+
+int main() {
+    // Crear un puntero a un objeto Empleado
+    Empleado* ptrEmpleado = new Empleado();
+
+    // Asignar valores a través del puntero
+    ptrEmpleado->nombre = "Ana Torres";
+    ptrEmpleado->sueldo = 3500.75;
+
+    // Llamar a la función miembro
+    ptrEmpleado->mostrarDatos();
+
+    // Liberar memoria
+    delete ptrEmpleado;
+
+    return 0;
+}
+```
+# 8. Listas enlazadas 
+
+Una **lista enlazada** es una estructura de datos fundamental que consiste en una colección de elementos llamados **nodos**, donde cada nodo está conectado con el siguiente a través de un apuntador (o enlace).
+
+**¿Qué es un nodo?**
+Un nodo es una pequeña estructura que contiene dos partes principales:
+- **Datos:** La información que queremos almacenar (por ejemplo, un número, un texto, u otro tipo de dato).
+- **Apuntador o enlace:** Un puntero que indica dónde está el siguiente nodo en la lista.
+  
+**Cómo funcionan las listas enlazadas**
+- La lista se inicia con un apuntador al primer nodo llamado habitualmente **cabeza** o **head**.
+- Cada nodo "apunta" al siguiente nodo de la lista mediante su enlace.
+- Para acceder a un nodo en particular, se parte desde el primer nodo y se sigue el enlace hasta el siguiente, y así sucesivamente.
+
+**¿Cómo sabemos que la lista terminó?**
+
+El último nodo de la lista tiene un apuntador especial que no apunta a ningún otro nodo. Este apuntador se define con un valor especial llamado **`NULL`** (o **`nullptr`** en C++ moderno), que indica que no hay más nodos después.
+
+**Almacenamiento dinámico**
+Una característica muy importante de las listas enlazadas es que:
+- Los nodos se crean **dinámicamente**, es decir, solo cuando son necesarios.
+- Esto permite que la lista pueda crecer o reducirse durante la ejecución del programa.
+- Por lo tanto, la lista enlazada es muy flexible y eficiente en el uso de memoria, a diferencia de los arreglos, donde el tamaño debe definirse al inicio y la memoria se asigna de forma fija.
+
+**Tipos de datos en los nodos**
+Cada nodo puede almacenar datos de cualquier tipo, incluyendo tipos básicos (como enteros o cadenas) o incluso estructuras más complejas.
+Esto hace a las listas enlazadas muy versátiles para representar diferentes tipos de información.
+
+**Ventajas:**
+- Una lista enlazada es apropiada cuando no es predecible de inmediato el número de elementos de datos a representarse en la estructura.
+- Son dinámicas, por lo que conforme sea necesario, la longitud de la lista puede aumentar o disminuir, mientras que los arreglos que almacenan - las listas de datos no son dinámicos, la memoria del arreglo es asignada en tiempo de compilación.
+- Las lista enlazadas sólo se llenan cuando el sistema no tiene suficiente memoria para satisfacer las solicitudes de asignación dinámica de almacenamiento.
+
+**Ejemplo**
+```cpp
+#include <iostream>
+using namespace std;
+
+// Definición del nodo
+struct Nodo {
+    int valor;
+    Nodo* siguiente;
+};
+
+// Función para agregar un nodo al final
+void agregarNodo(Nodo*& cabeza, int valor) {
+    Nodo* nuevoNodo = new Nodo();
+    nuevoNodo->valor = valor;
+    nuevoNodo->siguiente = nullptr;
+
+    if (cabeza == nullptr) {
+        cabeza = nuevoNodo;
+    } else {
+        Nodo* temp = cabeza;
+        while (temp->siguiente != nullptr) {
+            temp = temp->siguiente;
+        }
+        temp->siguiente = nuevoNodo;
+    }
+}
+
+// Función para imprimir la lista
+void imprimirLista(Nodo* cabeza) {
+    Nodo* temp = cabeza;
+    while (temp != nullptr) {
+        cout << temp->valor << "-> ";
+        temp = temp->siguiente;
+    }
+    cout << "nullptr" << endl;
+}
+
+// Función para eliminar toda la lista y liberar memoria
+void eliminarLista(Nodo*& cabeza) {
+    Nodo* temp;
+    while (cabeza != nullptr) {
+        temp = cabeza;
+        cabeza = cabeza->siguiente;
+        delete temp;
+    }
+}
+
+// Función principal
+int main() {
+    Nodo* lista = nullptr;
+
+    agregarNodo(lista, 10);
+    agregarNodo(lista, 20);
+    agregarNodo(lista, 30);
+
+    cout << "Lista enlazada: ";
+    imprimirLista(lista);
+
+    eliminarLista(lista);
+
+    return 0;
+}
+```
+**Explicación**
+1.  **Estructura `Nodo`**
+```cpp
+struct Nodo {
+    int valor;
+    Nodo* siguiente;
+};
+```
+Se define una estructura llamada `Nodo` que representa un nodo de la lista. 
+Cada nodo tiene: 
+- Un campo `valor` (almacena un número entero).
+- Un apuntador `siguiente` que apunta al siguiente nodo en la lista (o `nullptr` si es el último nodo). 
+
+2. **Función `agregarnodo`**
+```cpp
+void agregarNodo(Nodo*& cabeza, int valor)
+```
+Esta función agrega un nuevo nodo al final de la lista.
+`cabeza` es una referencia al puntero que apunta al inicio de la lista (`Nodo*&`).
+El nuevo nodo se crea dinámicamente con `new`.
+**Lógica interna:**
+- Se crea un nuevo nodo y se le asigna el valor recibido.
+- Si la lista está vacía (`cabeza == nullptr`), el nuevo nodo se convierte en el primer nodo.
+- Si ya hay nodos, se recorre la lista hasta el último nodo y se enlaza el nuevo nodo al final.
+
+3. **Función `imprimirlista`**
+```cpp
+void imprimirLista(Nodo* cabeza)
+```
+Esta función recorre la lista e imprime cada valor seguido de `->`, hasta llegar al final `(nullptr)`.
+```cpp
+10-> 20-> 30-> nullptr
+```
+4. **Función `eliminarlista`**
+```cpp
+void eliminarLista(Nodo*& cabeza)
+```
+Libera la memoria de todos los nodos. 
+Recorre la lista nodo por nodo: 
+- Guarda el nodo actual en un puntero temporal. 
+- Avanza al siguiente nodo. 
+- Elimina el nodo temporal con `delete`. 
+Al final, la lista queda vacía y `cabeza` apunta a `nullptr`. 
+
+5. **Función `main()`**
+```cpp
+int main() {
+    Nodo* lista = nullptr;
+    agregarNodo(lista, 10);
+    agregarNodo(lista, 20);
+    agregarNodo(lista, 30);
+
+    std::cout << "Lista enlazada: ";
+    imprimirLista(lista);
+
+    eliminarLista(lista);
+    return 0;
+}
+```
+- Se crea un puntero `lista` que inicialmente apunta a `nullptr`. 
+- Se agregan tres nodos con valores 10, 20 y 30. 
+- Se imprime la lista completa. 
+- Finalmente, se elimina la lista y se libera la memoria. 
+
+**Resultado del programa**
+Lista enlazada: 10-> 20-> 30-> nullptr
+
+**Práctica 1: Contar elementos de una lista enlazada**
+Desarrolla un programa que cree una lista enlazada simple e inserte los valores 3, 8, 12 y 20. Luego, el programa debe contar cuántos nodos hay en la lista e imprimir el resultado. 
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int valor;
+    Nodo* siguiente;
+};
+
+void agregarNodo(Nodo*& cabeza, int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->valor = valor;
+    nuevo->siguiente = nullptr;
+
+    if (cabeza == nullptr) {
+        cabeza = nuevo;
+    } else {
+        Nodo* temp = cabeza;
+        while (temp->siguiente != nullptr) {
+            temp = temp->siguiente;
+        }
+        temp->siguiente = nuevo;
+    }
+}
+
+int contarNodos(Nodo* cabeza) {
+    int contador = 0;
+    while (cabeza != nullptr) {
+        contador++;
+        cabeza = cabeza->siguiente;
+    }
+    return contador;
+}
+
+void imprimirLista(Nodo* cabeza) {
+    Nodo* temp = cabeza;
+    while (temp != nullptr) {
+        cout << temp->valor << "-> ";
+        temp = temp->siguiente;
+    }
+    cout << "nullptr" << endl;
+}
+
+int main() {
+    Nodo* lista = nullptr;
+    agregarNodo(lista, 3);
+    agregarNodo(lista, 8);
+    agregarNodo(lista, 12);
+    agregarNodo(lista, 20);
+
+    cout << "Lista enlazada: ";
+    imprimirLista(lista);
+
+    cout << "Cantidad de nodos: " << contarNodos(lista) << endl;
+
+    return 0;
+}
+```
+**Ejecución**
+Lista enlazada: 3-> 8-> 12-> 20-> nullptr 
+Cantidad de nodos: 4 
+
+**Práctica 2: eliminar un nodo por valor en una lista enlazada**
+Crea un programa que construya una lista enlazada simple insertando los valores 4, 7, 10, 7, 15. Luego, el usuario debe ingresar un valor que desea eliminar. El programa debe eliminar solo la primera ocurrencia de ese valor en la lista y mostrar el resultado final. 
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int valor;
+    Nodo* siguiente;
+};
+
+void agregarNodo(Nodo*& cabeza, int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->valor = valor;
+    nuevo->siguiente = nullptr;
+
+    if (cabeza == nullptr) {
+        cabeza = nuevo;
+    } else {
+        Nodo* temp = cabeza;
+        while (temp->siguiente != nullptr) {
+            temp = temp->siguiente;
+        }
+        temp->siguiente = nuevo;
+    }
+}
+
+void eliminarPorValor(Nodo*& cabeza, int valor) {
+    if (cabeza == nullptr) return;
+
+    if (cabeza->valor == valor) {
+        Nodo* temp = cabeza;
+        cabeza = cabeza->siguiente;
+        delete temp;
+        return;
+    }
+
+    Nodo* actual = cabeza;
+    while (actual->siguiente != nullptr && actual->siguiente->valor != valor) {
+        actual = actual->siguiente;
+    }
+
+    if (actual->siguiente != nullptr) {
+        Nodo* temp = actual->siguiente;
+        actual->siguiente = temp->siguiente;
+        delete temp;
+    }
+}
+
+void imprimirLista(Nodo* cabeza) {
+    Nodo* temp = cabeza;
+    while (temp != nullptr) {
+        cout << temp->valor << "-> ";
+        temp = temp->siguiente;
+    }
+    cout << "nullptr" << endl;
+}
+
+int main() {
+    Nodo* lista = nullptr;
+    agregarNodo(lista, 4);
+    agregarNodo(lista, 7);
+    agregarNodo(lista, 10);
+    agregarNodo(lista, 7);
+    agregarNodo(lista, 15);
+
+    cout << "Lista original: ";
+    imprimirLista(lista);
+
+    int valorEliminar;
+    cout << "Ingrese valor a eliminar: ";
+    cin >> valorEliminar;
+
+    eliminarPorValor(lista, valorEliminar);
+
+    cout << "Lista modificada: ";
+    imprimirLista(lista);
+
+    return 0;
+}
+```
+**Ejecución**
+**Ejemplo de entrada**
+Ingrese valor a eliminar: 7 
+**Salida**
+Lista original: 4-> 7-> 10-> 7-> 15-> nullptr 
+Lista modificada: 4-> 10-> 7-> 15-> nullptr 
+
+**Práctica 3: Insertar elementos al inicio de una lista enlazada**
+Desarrolla un programa en C++ que permita insertar los valores enteros 45, 60 y 75 al inicio de una lista enlazada simple. Luego, muestra en pantalla cómo queda la lista enlazada. 
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int valor;
+    Nodo* siguiente;
+};
+
+void insertarInicio(Nodo*& cabeza, int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->valor = valor;
+    nuevo->siguiente = cabeza;
+    cabeza = nuevo;
+}
+
+void imprimirLista(Nodo* cabeza) {
+    Nodo* temp = cabeza;
+    while (temp != nullptr) {
+        cout << temp->valor << "-> ";
+        temp = temp->siguiente;
+    }
+    cout << "nullptr" << endl;
+}
+
+int main() {
+    Nodo* lista = nullptr;
+
+    insertarInicio(lista, 45);
+    insertarInicio(lista, 60);
+    insertarInicio(lista, 75);
+
+    cout << "Lista enlazada: ";
+    imprimirLista(lista);
+
+    return 0;
+}
+```
+**Ejecución**
+Lista enlazada: 75-> 60-> 45-> nullptr 
+
+# 10. Listas Enlazadas Dobles y Circulares
+## 10.1 Lista Doblemente Enlazada
+Una lista doblemente enlazada es una lista lineal en la que cada nodo tiene dos enlaces, uno al nodo siguiente, y otro al anterior. 
+Las listas doblemente enlazadas no necesitan un nodo especial para acceder a ellas, pueden recorrerse en ambos sentidos a partir de cualquier nodo, esto es porque a partir de cualquier nodo, siempre es posible alcanzar cualquier nodo de la lista, hasta que se llega a uno de los extremos.
+El nodo típico es el mismo que para construir las listas que hemos visto, salvo que tienen otro puntero al nodo anterior.
+**Ventajas:**
+- Navegación bidireccional
+- Eliminación más eficiente
+- Inserción flexible
+
+**Desventajas:**
+- Mayor uso de memoria
+- Mayor complejidad en implementación
+
+**Operaciones basicas**
+**Estructura**
+```cpp
+struct nodo {
+   int dato;
+   struct nodo *siguiente;
+   struct nodo *anterior;
+};
+```
+**Insertar al inicio**
+```cpp 
+void insertarInicio ( struct Nodo ** cabeza , int valor ) {
+struct Nodo * nuevo = ( struct Nodo *) malloc ( sizeof (
+struct Nodo ) ) ;
+nuevo - > dato = valor ;
+nuevo - > siguiente = (* cabeza ) ;
+nuevo - > anterior = NULL ;
+
+if ((* cabeza ) != NULL )
+(* cabeza ) -> anterior = nuevo ;
+
+(* cabeza ) = nuevo ;
+}
+```
+**¿Qué hace esta función?**
+
+- Crea un nuevo nodo con el valor dado.
+- Lo inserta al principio de la lista doblemente enlazada.
+- Si ya hay nodos en la lista, el antiguo primer nodo actualiza su puntero `anterior` para apuntar al nuevo nodo.
+- Finalmente, el puntero `cabeza` apunta ahora al nuevo nodo.
+
+**Importante:**
+
+- Se usa `malloc` porque este es código estilo C.
+- Se usa `struct Nodo** cabeza` para poder modificar el puntero original que apunta al inicio de la lista.
+
+**Insertar al Final**
+```cpp
+void insertarFinal ( struct Nodo ** cabeza , int valor ) {
+struct Nodo * nuevo = ( struct Nodo *) malloc ( sizeof (
+struct Nodo ) ) ;
+struct Nodo * ultimo = * cabeza ;
+
+nuevo - > dato = valor ;
+nuevo - > siguiente = NULL ;
+
+if (* cabeza == NULL ) {
+nuevo - > anterior = NULL ;
+* cabeza = nuevo ;
+return ;
+}
+
+while ( ultimo - > siguiente != NULL )
+ultimo = ultimo - > siguiente ;
+
+ultimo - > siguiente = nuevo ;
+nuevo - > anterior = ultimo ;
+}
+```
+**¿Qué hace esta función?**
+
+- Crea un nodo nuevo con el valor dado.
+- Si la lista está vacía, ese nodo se convierte en el primer nodo.
+- Si ya hay nodos, recorre la lista hasta el final.
+- Conecta el nuevo nodo al último:
+  - El puntero `anterior` del nuevo nodo apunta al último nodo.
+  - El `siguiente` del último nodo ahora apunta al nuevo.
+
+**Importante:**
+- Se recorre con `while` hasta encontrar el nodo que tenga `siguiente == NULL`.
+
+**Eliminar nodo**
+```cpp
+void eliminarNodo ( struct Nodo ** cabeza , struct Nodo *
+nodoEliminar ) {
+if (* cabeza == NULL || nodoEliminar == NULL )
+return ;
+
+if (* cabeza == nodoEliminar )
+* cabeza = nodoEliminar - > siguiente ;
+
+if ( nodoEliminar - > siguiente != NULL )
+nodoEliminar - > siguiente - > anterior = nodoEliminar
+-> anterior ;
+
+if ( nodoEliminar - > anterior != NULL )
+nodoEliminar - > anterior - > siguiente = nodoEliminar
+-> siguiente ;
+
+free ( nodoEliminar ) ;
+}
+```
+**¿Qué hace esta función?**
+
+- Elimina un nodo cualquiera de la lista doblemente enlazada.
+- Verifica si la lista está vacía o si el nodo a eliminar es `NULL`.
+- Si el nodo a eliminar es la `cabeza`, actualiza el puntero `cabeza` al siguiente nodo.
+- Ajusta los enlaces del nodo `anterior` y del nodo `siguiente` para saltarse el nodo eliminado.
+- Finalmente, libera la memoria del nodo.
+
+**Importante:**
+- No importa si el nodo está al inicio, en medio o al final.
+- El uso de `free()` es necesario porque el nodo fue creado con `malloc()`.
+
+## 10.2 Listas circulares
+Una lista circular es una lista lineal en la que el último nodo a punta al primero.
+Las listas circulares evitan excepciones en la operaciones que se realicen sobre ellas. No existen casos especiales, cada nodo siempre tiene uno anterior y uno siguiente.
+En algunas listas circulares se añade un nodo especial de cabecera, de ese modo se evita la única excepción posible, la de que la lista esté vacía.
+El nodo típico es el mismo que para construir listas abiertas.
+**Ventajas:**
+- Útil para aplicaciones cíclicas
+- No hay punteros `NULL`
+- Acceso continuo a todos los nodos
+
+**Desventajas:**
+- Riesgo de bucles infinitos
+- Detección del final más compleja
+
+## 10.2.1. Lista Circular Simple
+Cada nodo contiene un dato y un puntero al siguiente nodo.
+El último nodo no apunta a NULL, sino que apunta al primer nodo, formando un ciclo cerrado.
+Solo se puede avanzar hacia adelante; no hay punteros hacia atrás (no es doblemente enlazada).
+
+**Estructura**
+```cpp
+struct nodo {
+   int dato;
+   struct nodo *siguiente;
+};
+```
+- Define un nodo con un dato de tipo entero. 
+- Contiene un puntero llamado `siguiente` que apunta al siguiente nodo en la lista. 
+- En una lista circular simple, el último nodo apunta al primero, formando un ciclo. 
+
+**Insertar en Lista Circular**
+```cpp
+void insertarCircular(struct NodoCircular** cabeza, int valor) {
+    struct NodoCircular* nuevo = (struct NodoCircular*)
+    malloc(sizeof(struct NodoCircular));
+    nuevo->dato = valor;
+
+    if (*cabeza == NULL) {
+        *cabeza = nuevo;
+        nuevo->siguiente = nuevo; // Apunta a sí mismo
+        return;
+    }
+
+    struct NodoCircular* temp = *cabeza;
+    while (temp->siguiente != *cabeza)
+        temp = temp->siguiente;
+
+    temp->siguiente = nuevo;
+    nuevo->siguiente = *cabeza;
+}
+```
+- Crea un nuevo nodo con el valor dado. 
+- Si la lista está vacía, el nuevo nodo apunta a sí mismo y se asigna como cabeza. 
+- Si no, recorre la lista hasta encontrar el último nodo (que apunta a la cabeza). 
+- Inserta el nuevo nodo después del último, y lo conecta para que apunte a la cabeza, manteniendo el ciclo. 
+
+## 10.2.3.  Lista Circular Doble
+Cada nodo contiene un dato y dos punteros:
+    Uno hacia el siguiente nodo (enlace hacia adelante).
+    Otro hacia el anterior nodo (enlace hacia atrás).
+El último nodo apunta al primero, y el primero apunta al último, formando un ciclo cerrado.
+Puedes recorrer la lista tanto hacia adelante como hacia atrás sin fin.
+
+ **Estructura**
+  ```cpp
+ struct NodoCircularDoble {
+    int dato;
+    struct NodoCircularDoble* siguiente;
+    struct NodoCircularDoble* anterior;
+};
+```
+- Nodo con un dato entero.
+- Dos punteros: siguiente para avanzar al siguiente nodo, anterior para retroceder al nodo previo.
+- En lista circular doble, el primer nodo y el último están conectados bidireccionalmente formando un ciclo.
+- 
+**Insertar en Lista Circular Doble**
+```cpp
+void insertarCircularDoble(struct NodoCircularDoble** cabeza, int valor) {
+    struct NodoCircularDoble* nuevo = (struct NodoCircularDoble*) malloc(sizeof(struct NodoCircularDoble));
+    nuevo->dato = valor;
+
+    if (*cabeza == NULL) {
+        *cabeza = nuevo;
+        nuevo->siguiente = nuevo;
+        nuevo->anterior = nuevo;
+        return;
+    }
+
+    struct NodoCircularDoble* ultimo = (*cabeza)->anterior;
+
+    nuevo->siguiente = *cabeza;
+    (*cabeza)->anterior = nuevo;
+    nuevo->anterior = ultimo;
+    ultimo->siguiente = nuevo;
+}
+```
+- Crea un nodo nuevo con el valor dado.
+- Si la lista está vacía, el nuevo nodo se enlaza a sí mismo en ambas direcciones y se establece como cabeza.
+- Si no, encuentra el último nodo (usando el puntero anterior de la cabeza).
+- Inserta el nuevo nodo entre el último y la cabeza, actualizando ambos punteros para mantener el ciclo doble.
+
+## 10.3. Recorrido de las Listas
+**Recorrer Lista Doble**
+```cpp
+void recorrerDoble(struct Nodo* nodo) {
+    printf("Hacia adelante: ");
+    while (nodo != NULL) {
+        printf("%d ", nodo->dato);
+        nodo = nodo->siguiente;
+    }
+    printf("\n");
+}
+```
+- Recorre la lista simple desde el nodo dado hasta que el siguiente nodo es NULL.
+- Imprime el dato de cada nodo durante el recorrido.
+- 
+**Recorrer Lista Circular**
+```cpp
+void recorrerCircular(struct NodoCircular* cabeza) {
+    if (cabeza == NULL) return;
+
+    struct NodoCircular* temp = cabeza;
+    do {
+        printf("%d ", temp->dato);
+        temp = temp->siguiente;
+    } while (temp != cabeza);
+    printf("\n");
+}
+```
+- Si la lista está vacía, termina inmediatamente.
+- Usa un ciclo do-while para recorrer desde la cabeza, avanzando nodo por nodo.
+- Imprime el dato de cada nodo hasta volver al nodo inicial (cabeza), asegurando recorrer todo el ciclo.
+
+**Ejemplo**
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+
+// Asumiendo que las estructuras y funciones:
+// insertarInicio, insertarFinal, insertarCircular, recorrerDoble y recorrerCircular
+// ya están definidas en otro lugar.
+
+int main() {
+    struct Nodo* listaDoble = NULL;
+    struct NodoCircular* listaCircular = NULL;
+
+    // Insertar en lista doble
+    insertarInicio(&listaDoble, 10);
+    insertarInicio(&listaDoble, 20);
+    insertarFinal(&listaDoble, 30);
+
+    // Insertar en lista circular
+    insertarCircular(&listaCircular, 1);
+    insertarCircular(&listaCircular, 2);
+    insertarCircular(&listaCircular, 3);
+
+    printf("Lista Doble: ");
+    recorrerDoble(listaDoble);
+
+    printf("Lista Circular: ");
+    recorrerCircular(listaCircular);
+
+    return 0;
+}
+```
+**Explicación**
+1.  
+```cpp
+#include <stdio.h>
+#include <stdlib.h>
+```
+Estas líneas incluyen las librerías estándar de entrada/salida (`stdio.h`) y manejo de memoria dinámica (`stdlib.h`).
+2. 
+```cpp
+struct Nodo* listaDoble = NULL;
+struct NodoCircular* listaCircular = NULL;
+```
+Declara dos punteros a estructuras, `listaDoble` y `listaCircular`. 
+Ambos punteros se inicializan en `NULL`, indicando que inicialmente las listas están vacías. 
+`Nodo` es la estructura para la lista doblemente enlazada. 
+`NodoCircular` es la estructura para la lista circular simple. 
+3.  
+```cpp
+// Insertar en lista doble
+insertarInicio(&listaDoble, 10);
+insertarInicio(&listaDoble, 20);
+insertarFinal(&listaDoble, 30);
+```
+Estas líneas llaman funciones para agregar nodos a la lista doblemente enlazada. 
+`insertarInicio(&listaDoble, 10)` inserta un nodo con valor `10` al inicio de la lista. 
+`insertarInicio(&listaDoble, 20)` inserta un nodo con valor `20` al inicio, que quedará antes del nodo con `10`. 
+`insertarFinal(&listaDoble, 30)` inserta un nodo con valor `30` al final de la lista. 
+4.  
+```cpp
+// Insertar en lista circular
+insertarCircular(&listaCircular, 1);
+insertarCircular(&listaCircular, 2);
+insertarCircular(&listaCircular, 3);
+```
+Aquí se agregan nodos a la **lista circular simple**. 
+Cada llamada a `insertarCircular` agrega un nuevo nodo con el valor especificado. 
+Los nodos se van enlazando para que el último apunte al primero, formando un **ciclo**. 
+5.   
+```cpp
+printf("Lista Doble: ");
+recorrerDoble(listaDoble);
+```
+Imprime el texto `"Lista Doble: "`. 
+Luego, la función `recorrerDoble` recorre la lista doble desde el primer nodo hasta el último, imprimiendo los valores almacenados. 
+6.  
+```cpp
+printf("Lista Circular: ");
+recorrerCircular(listaCircular);
+```
+Imprime el texto `"Lista Circular: "`. 
+La función `recorrerCircular` recorre la lista circular empezando por el nodo apuntado por `listaCircular` e imprime todos los valores hasta regresar al nodo inicial, mostrando así la lista completa. 
+
+**Ejecución**
+Lista Doble: Hacia adelante: 20 10 30   
+Lista Circular: 1 2 3  
+
+**Práctica 1:**
+
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* siguiente;
+    Nodo* anterior;
+};
+
+void insertarInicio(Nodo*& cabeza, int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->dato = valor;
+    nuevo->siguiente = cabeza;
+    nuevo->anterior = nullptr;
+
+    if (cabeza != nullptr)
+        cabeza->anterior = nuevo;
+
+    cabeza = nuevo;
+}
+
+void recorrerDoble(Nodo* nodo) {
+    while (nodo != nullptr) {
+        cout << nodo->dato << " ";
+        nodo = nodo->siguiente;
+    }
+    cout << endl;
+}
+
+int main() {
+    Nodo* lista = nullptr;
+
+    insertarInicio(lista, 30);
+    insertarInicio(lista, 20);
+    insertarInicio(lista, 10);
+
+    cout << "Lista doble: ";
+    recorrerDoble(lista);
+
+    return 0;
+}
+```
 
 
