@@ -20,6 +20,9 @@
     <strong>Docente:</strong> Fred Torres Cruz</p>
 </div>
 
+<!-- TOC -->
+<!-- /TOC -->
+
 # Índice
 
 - [Índice](#índice)
@@ -40,15 +43,27 @@
     - [4.1.2 Estructuras Repetitivas (Bucles)](#412-estructuras-repetitivas-bucles)
 - [5. Funciones](#5-funciones)
 - [6. Arreglos](#6-arreglos)
-- [6. Operadores `&` y `*`.](#6-operadores--y-)
-- [7. Operador -\>](#7-operador--)
-- [8. Listas enlazadas](#8-listas-enlazadas)
+- [7. Operadores `&` y `*`.](#7-operadores--y-)
+- [8. Operador -\>](#8-operador--)
+- [9. Listas enlazadas](#9-listas-enlazadas)
 - [10. Listas Enlazadas Dobles y Circulares](#10-listas-enlazadas-dobles-y-circulares)
   - [10.1 Lista Doblemente Enlazada](#101-lista-doblemente-enlazada)
   - [10.2 Listas circulares](#102-listas-circulares)
   - [10.2.1. Lista Circular Simple](#1021-lista-circular-simple)
   - [10.2.3.  Lista Circular Doble](#1023--lista-circular-doble)
   - [10.3. Recorrido de las Listas](#103-recorrido-de-las-listas)
+- [11. Pilas (Staks)](#11-pilas-staks)
+- [12. Colas (Queue)](#12-colas-queue)
+- [13. Recursividad](#13-recursividad)
+- [14. Árboles](#14-árboles)
+  - [14.1 Árbol Binario Simple](#141-árbol-binario-simple)
+  - [14.2 Árbol Binario de Búsqueda (BST)](#142-árbol-binario-de-búsqueda-bst)
+  - [14.3 Árboles Balanceados](#143-árboles-balanceados)
+  - [14.4 Árboles B y B+](#144-árboles-b-y-b)
+  - [14.5 Árbol Heap (Montículo)](#145-árbol-heap-montículo)
+  - [14.6 Árbol Rojo-Negro](#146-árbol-rojo-negro)
+- [Conclusión](#conclusión)
+
 # Introducción
 
 Este libro presenta una síntesis ordenada de los principales contenidos abordados durante el curso de programación en C++ y estructuras de datos. Su objetivo es consolidar los conocimientos adquiridos, facilitar su comprensión y servir como material de consulta para futuros estudios.
@@ -60,10 +75,6 @@ Cada capítulo combina teoría y ejemplos prácticos, orientando al lector hacia
 # 1. ¿Qué es programación?
 
 La programación informática es el arte del proceso por el cual se limpia, codifica, traza y protege el código fuente de programas computacionales, en otras palabras, es indicarle a la computadora lo que tiene que hacer. 
-
-<div style="float: right; margin: 0 0 10px 15px; width: 500px;">
-  <img src="imagen/programacion.png" alt="Imagen de programación" style="width: 100%;">
-</div>
 
 La programación informática es una de las habilidades esenciales que aprendes cuando estudias informática.
  
@@ -85,9 +96,6 @@ Algunas de ellas pueden agruparse y de ese modo recibir un nombre para tener la 
 
 Un **lenguaje de programación** es un conjunto de reglas y símbolos que permiten a los seres humanos escribir instrucciones que una computadora puede entender y ejecutar. Es el medio de comunicación entre el programador y la máquina.
 
-<div style="float: right; margin: 0 0 10px 15px; width: 500px;">
-  <img src="imagen/lenguaje.png" alt="Imagen de programación" style="width: 100%;">
-</div>
 
 Así como los humanos usamos distintos idiomas para comunicarnos, las computadoras también entienden distintos lenguajes. Cada lenguaje tiene su propia **sintaxis** (forma de escribir) y **semántica** (significado de las instrucciones).
 
@@ -155,7 +163,7 @@ int main() {
 **¿Qué hace?**  
     Le dice al programa que use una **biblioteca llamada iostream**, que permite mostrar mensajes en la pantalla o recibir datos del teclado.
 
-  ✅ **Ejemplo real**: es como decirle a tu programa: *“Usa las herramientas necesarias para poder imprimir mensajes.”*
+   **Ejemplo real**: es como decirle a tu programa: *“Usa las herramientas necesarias para poder imprimir mensajes.”*
 
 
 2. `using namespace std;`
@@ -163,7 +171,7 @@ int main() {
 **¿Qué hace?**  
     Le indica al programa que puede usar funciones como `cout` sin tener que escribir `std::cout`.
 
-  ✅ **Traducción fácil**: le dice a C++ que use un “espacio de nombres” donde están los comandos comunes.
+  **Traducción fácil**: le dice a C++ que use un “espacio de nombres” donde están los comandos comunes.
 
 
 
@@ -173,18 +181,18 @@ int main() {
     Aquí empieza el programa.  
   **`main()`** es el punto de inicio: es donde el programa comienza a ejecutarse.
 
-  ✅  **Piensa en esto como el corazón del programa**
+  **Piensa en esto como el corazón del programa**
 
 4. `cout << "Hola, mundo!" << endl;`
 
 **¿Qué hace?**  
     Imprime el mensaje `"Hola, mundo!"` en la pantalla.
 
-    🧠 `cout`: Significa "console output" (salida por consola).  
-    🧠 `<<`: Se usa para enviar texto a la consola.  
-    🧠 `endl`: Hace un salto de línea, como presionar ENTER.
+     `cout`: Significa "console output" (salida por consola).  
+     `<<`: Se usa para enviar texto a la consola.  
+     `endl`: Hace un salto de línea, como presionar ENTER.
 
-- ✅ **Lo que verás en pantalla**:
+- **Lo que verás en pantalla**:
 
  
   ```
@@ -197,7 +205,7 @@ int main() {
 **¿Qué hace?**  
     Le dice al sistema que el programa terminó **correctamente**.
 
-    ✅ `0` significa “todo bien”.
+    `0` significa “todo bien”.
 
 
 
@@ -334,15 +342,15 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese el primer número: 10
-Ingrese el segundo número: 2
+**Ejemplo de ejecución**  
+Ingrese el primer número: 10  
+Ingrese el segundo número: 2  
 
-Resultados:
-Suma: 12
-Resta: 8
-Multiplicación: 20
-División: 5
+Resultados:  
+Suma: 12  
+Resta: 8  
+Multiplicación: 20  
+División: 5  
 
 **Práctica 2: Par o impar**
 Pide un número entero e indica si es par o impar.
@@ -366,8 +374,8 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese un número: 8
+**Ejemplo de ejecución**  
+Ingrese un número: 8  
 El número es par.
 
 **Práctica 3: Comparación de edades**
@@ -395,9 +403,9 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese la primera edad: 19
-Ingrese la segunda edad: 25
+**Ejemplo de ejecución**  
+Ingrese la primera edad: 19  
+Ingrese la segunda edad: 25  
 La segunda edad es mayor que la primera.
 
 # 4. Estructura de control
@@ -538,9 +546,9 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese el primer número: 12
-Ingrese el segundo número: 8
+**Ejemplo de ejecución**  
+Ingrese el primer número: 12  
+Ingrese el segundo número: 8  
 El primer número es mayor.
 
 **Práctica 2: Calificación con mensaje**
@@ -575,8 +583,8 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese la nota (0 a 20): 15
+**Ejemplo de ejecución**  
+Ingrese la nota (0 a 20): 15  
 Bueno
 
 **Práctica 3: Contar hasta N**
@@ -601,8 +609,8 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese un número entero positivo: 5
+**Ejemplo de ejecución**  
+Ingrese un número entero positivo: 5  
 1 2 3 4 5
 
 # 5. Funciones
@@ -703,8 +711,9 @@ Se llama a la función area() pasando pi y radio.
 Se muestra el resultado con cout.
 
 **Ejemplo de ejecución**
-Ingrese el radio del circulo: 5
-El area del circulo es: 78.5
+
+Ingrese el radio del circulo: 5  
+El area del circulo es: 78.5  
 
 **Práctica 1: Calcular la potencia de un número (sin usar pow)**
 ```cpp
@@ -735,10 +744,10 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese la base: 2
-Ingrese el exponente: 3
-El resultado de 2^3 es: 8
+**Ejemplo de ejecución**  
+Ingrese la base: 2  
+Ingrese el exponente: 3  
+El resultado de 2^3 es: 8  
 
 **Práctica 2: Sumar los dígitos de un número**
 ```cpp
@@ -768,8 +777,8 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese un número: 1234
+**Ejemplo de ejecución**  
+Ingrese un número: 1234  
 La suma de los dígitos es: 10
 
 # 6. Arreglos
@@ -872,11 +881,11 @@ int main() {
     return 0;
 }
 ```
-**Ejemplo de ejecución**
-Ingrese 8 numeros enteros:
-10 20 30 40 50 60 70 80
-Los numeros en orden inverso son: 
-80 70 60 50 40 30 20 10 
+**Ejemplo de ejecución**  
+Ingrese 8 numeros enteros:  
+10 20 30 40 50 60 70 80  
+Los numeros en orden inverso son:   
+80 70 60 50 40 30 20 10   
 
 **Practica 2: Suma y producto escalar de dos arreglos**
 Escribe un programa que lea dos arreglos de 5 enteros, calcule un tercer arreglo con la suma elemento a elemento y muestre el producto escalar de ambos arreglos.
@@ -912,17 +921,18 @@ int main() {
 }
 ```
 **Ejemplo de ejecución**
+
 Ingrese los elementos del vector A y B:
-a[0]: 1
-b[0]: 2
-a[1]: 3
-b[1]: 4
-a[2]: 5
-b[2]: 6
-a[3]: 7
-b[3]: 8
-a[4]: 9
-b[4]: 10
+a[0]: 1    
+b[0]: 2  
+a[1]: 3  
+b[1]: 4  
+a[2]: 5  
+b[2]: 6  
+a[3]: 7  
+b[3]: 8  
+a[4]: 9  
+b[4]: 10  
 
 Suma de elementos (a[i] + b[i]):
 suma[0] = 3
@@ -933,7 +943,7 @@ suma[4] = 19
 
 Producto escalar: 130
 
-# 6. Operadores `&` y `*`.
+# 7. Operadores `&` y `*`.
 
 En el lenguaje de programación C++, los operadores `&` y `*` son fundamentales para trabajar con **direcciones de memoria** y **punteros**, herramientas clave para el control preciso de los datos y su almacenamiento en la memoria del computador.
 
@@ -969,7 +979,6 @@ Permite leer o modificar datos que están almacenados en otra ubicación de memo
 Es indispensable para la manipulación dinámica de datos y estructuras como arreglos, cadenas y memoria dinámica (`new`/`delete`).
 El mal uso del operador `*` puede causar errores graves como **acceder a zonas de memoria no válidas** (errores de segmentación o *segmentation faults*).
 
-> ✅ Comprender estos operadores es esencial para dominar el manejo de punteros, una de las características más poderosas y delicadas de C++.
 
 **Ejemplo**
 ```cpp
@@ -1041,7 +1050,8 @@ int main() {
 }
 ``` 
 **Ejemplo de ejecución**
-Direccion guardada en el puntero: 0x61fef8
+
+Direccion guardada en el puntero: 0x61fef8  
 Valor al que apunta el puntero: 25
 
 **Práctica 2: Arreglo y puntero básico**
@@ -1061,8 +1071,9 @@ int main() {
 }
 ```
 **Ejemplo de ejecución**
-Elemento 0: 5
-Elemento 1: 10
+
+Elemento 0: 5  
+Elemento 1: 10  
 Elemento 2: 15
 
 **Práctica 3: Intercambio de valores y uso de punteros para modificar variables**
@@ -1097,13 +1108,14 @@ int main() {
 }
 ```
 **Ejemplo de ejecución**
-Ingrese el primer numero: 15
-Ingrese el segundo numero: 30
-Despues del intercambio:
-Primer numero: 30
+
+Ingrese el primer numero: 15   
+Ingrese el segundo numero: 30  
+Despues del intercambio:  
+Primer numero: 30  
 Segundo numero: 15
 
-# 7. Operador ->
+# 8. Operador ->
 
 Es una herramienta fundamental cuando se trabaja con **punteros a objetos**. Su función principal es permitir el acceso directo a los **miembros** (atributos o métodos) de un objeto a través de un puntero. 
 
@@ -1224,6 +1236,7 @@ delete ptrPersona;
 Se libera la memoria asignada con `new` para evitar fugas de memoria (uso correcto de `delete`).
 
 **Práctica 1**
+
 Define una estructura llamada **`Mascota`** que contenga dos campos: **nombre** (tipo `string`) y **edad** (tipo `int`). En la función **`main`**, crea un **puntero** a un objeto **`Mascota`**, asigna valores a sus miembros utilizando el operador **`->`** y muestra la información por consola. Luego, libera la memoria asignada.
 ```cpp
 #include <iostream>
@@ -1253,6 +1266,7 @@ int main() {
 }
 ```
 **Ejemplo de ejecución**
+
 Nombre de la mascota: Luna  
 Edad de la mascota: 4 años
 
@@ -1289,7 +1303,11 @@ int main() {
     return 0;
 }
 ```
-# 8. Listas enlazadas 
+**Ejecución**  
+Nombre del empleado: Ana Torres    
+Sueldo: $3500.75
+
+# 9. Listas enlazadas 
 
 Una **lista enlazada** es una estructura de datos fundamental que consiste en una colección de elementos llamados **nodos**, donde cada nodo está conectado con el siguiente a través de un apuntador (o enlace).
 
@@ -1451,7 +1469,8 @@ int main() {
 - Finalmente, se elimina la lista y se libera la memoria. 
 
 **Resultado del programa**
-Lista enlazada: 10-> 20-> 30-> nullptr
+
+**Lista enlazada:** 10-> 20-> 30-> nullptr
 
 **Práctica 1: Contar elementos de una lista enlazada**
 Desarrolla un programa que cree una lista enlazada simple e inserte los valores 3, 8, 12 y 20. Luego, el programa debe contar cuántos nodos hay en la lista e imprimir el resultado. 
@@ -1514,7 +1533,8 @@ int main() {
 }
 ```
 **Ejecución**
-Lista enlazada: 3-> 8-> 12-> 20-> nullptr 
+
+Lista enlazada: 3-> 8-> 12-> 20-> nullptr   
 Cantidad de nodos: 4 
 
 **Práctica 2: eliminar un nodo por valor en una lista enlazada**
@@ -1599,10 +1619,12 @@ int main() {
 }
 ```
 **Ejecución**
-**Ejemplo de entrada**
+
+**Ejemplo de entrada**  
 Ingrese valor a eliminar: 7 
-**Salida**
-Lista original: 4-> 7-> 10-> 7-> 15-> nullptr 
+
+**Salida**  
+Lista original: 4-> 7-> 10-> 7-> 15-> nullptr   
 Lista modificada: 4-> 10-> 7-> 15-> nullptr 
 
 **Práctica 3: Insertar elementos al inicio de una lista enlazada**
@@ -1646,7 +1668,8 @@ int main() {
 }
 ```
 **Ejecución**
-Lista enlazada: 75-> 60-> 45-> nullptr 
+
+**Lista enlazada:** 75-> 60-> 45-> nullptr 
 
 # 10. Listas Enlazadas Dobles y Circulares
 ## 10.1 Lista Doblemente Enlazada
@@ -1983,7 +2006,7 @@ recorrerCircular(listaCircular);
 Imprime el texto `"Lista Circular: "`. 
 La función `recorrerCircular` recorre la lista circular empezando por el nodo apuntado por `listaCircular` e imprime todos los valores hasta regresar al nodo inicial, mostrando así la lista completa. 
 
-**Ejecución**
+**Ejecución**  
 Lista Doble: Hacia adelante: 20 10 30   
 Lista Circular: 1 2 3  
 
@@ -2032,5 +2055,1429 @@ int main() {
     return 0;
 }
 ```
+**Ejecución**  
+Lista doble: 10 20 30
+
+**Práctica 2:**
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* siguiente;
+};
+
+void insertarCircular(Nodo*& cabeza, int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->dato = valor;
+    nuevo->siguiente = nullptr;
+
+    if (cabeza == nullptr) {
+        cabeza = nuevo;
+        nuevo->siguiente = cabeza;  // Se apunta a sí mismo
+        return;
+    }
+
+    Nodo* temp = cabeza;
+    while (temp->siguiente != cabeza)
+        temp = temp->siguiente;
+
+    temp->siguiente = nuevo;
+    nuevo->siguiente = cabeza;
+}
+
+void recorrerCircular(Nodo* cabeza) {
+    if (cabeza == nullptr) return;
+
+    Nodo* temp = cabeza;
+    cout << "Lista circular: ";
+    do {
+        cout << temp->dato << " ";
+        temp = temp->siguiente;
+    } while (temp != cabeza);
+    cout << endl;
+}
+
+int main() {
+    Nodo* lista = nullptr;
+
+    insertarCircular(lista, 5);
+    insertarCircular(lista, 10);
+    insertarCircular(lista, 15);
+
+    recorrerCircular(lista);
+
+    return 0;
+}
+```
+**Ejecución**  
+Lista circular: 5 10 15
+
+# 11. Pilas (Staks)
+
+Una **pila** es una estructura de datos lineal que sigue el principio **LIFO** (*Last In, First Out*), es decir, el último elemento que se agrega es el primero en salir.  
+Se puede imaginar como una **pila de platos**: el último plato que se coloca es el primero que se retira.
+
+**Características principales**
+
+- Se inserta un elemento con la operación `push()`.
+- Se elimina el último elemento insertado con la operación `pop()`.
+- Se puede consultar el elemento en la cima con `top()`.
+- Solo se puede acceder al elemento en la **cima** (último insertado).
+- Es una estructura muy útil en procesos como:
+  - Deshacer acciones
+  - Recursividad
+  - Evaluación de expresiones
+  - Seguimiento de llamadas a funciones, entre otros.
+
+**Operaciones básicas**
+
+| Operación | Descripción                               |
+|-----------|-------------------------------------------|
+| `push()`  | Inserta un nuevo elemento en la cima      |
+| `pop()`   | Elimina el elemento en la cima            |
+| `top()`   | Devuelve el valor del elemento en la cima |
+| `empty()` | Verifica si la pila está vacía            |
+
+**Ejemplo**
+```cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    stack<int> pila;
+
+    pila.push(10);  
+    pila.push(20); 
+    pila.push(30); 
+
+    cout << "Elemento en la cima: " << pila.top() << endl;
+
+    pila.pop(); 
+
+    cout << "Nuevo elemento en la cima: " << pila.top() << endl;
+
+    return 0;
+}
+```
+**Explicación**
+
+1. `stack<int> pila;`: Se crea una pila de enteros.
+2. `pila.push(10);`: Inserta el número `10`.
+3. `pila.push(20);`: Inserta el número `20` encima del `10`.
+4. `pila.push(30);`: Inserta el número `30` encima del `20`.
+5. `pila.top();`: Retorna el elemento en la cima (`30`).
+6. `pila.pop();`: Elimina el `30`.
+7. `pila.top();`: Ahora la cima es `20`.
+
+**Práctica 1**
+
+```cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+
+bool esPalindromo(string texto) {
+    stack<char> pila;
+    int n = texto.length();
+
+    for (int i = 0; i < n / 2; i++) {
+        pila.push(texto[i]);
+    }
+
+    int inicio = (n % 2 == 0) ? n / 2 : n / 2 + 1;
+
+    for (int i = inicio; i < n; i++) {
+        if (pila.top() != texto[i])
+            return false;
+        pila.pop();
+    }
+
+    return true;
+}
+
+int main() {
+    string texto;
+    cout << "Ingrese una palabra: ";
+    cin >> texto;
+
+    if (esPalindromo(texto))
+        cout << "Es un palindromo" << endl;
+    else
+        cout << "No es un palindromo" << endl;
+
+    return 0;
+}
+```
+**Ejecución**
+
+**Ingrese una palabra:** radar
+
+Es un palindromo
+
+**Práctica 2:**
+```cpp
+#include <iostream>
+#include <stack>
+using namespace std;
+
+int main() {
+    int numero;
+    stack<int> binario;
+
+    cout << "Ingrese un número decimal: ";
+    cin >> numero;
+
+    while (numero > 0) {
+        binario.push(numero % 2);
+        numero = numero / 2;
+    }
+
+    cout << "Número en binario: ";
+    while (!binario.empty()) {
+        cout << binario.top();
+        binario.pop();
+    }
+
+    cout << endl;
+    return 0;
+}
+```
+**Ejecución**  
+**Ingrese un número decimal:** 13  
+Número en binario: 1101
+
+# 12. Colas (Queue)
+
+Una **cola** es una estructura de datos lineal que permite almacenar y procesar elementos en orden secuencial, utilizando el principio **FIFO** (*First In, First Out*), lo que significa que **el primer elemento en ingresar es el primero en salir**.
+
+A diferencia de una **pila (LIFO)**, en una cola los elementos se **insertan al final** y se **eliminan desde el inicio**.  
+Esta estructura es útil cuando se requiere mantener un orden de atención o procesamiento entre los datos.
+
+**Estructura de una cola**
+
+Una cola mantiene dos referencias importantes:
+
+- **Frente (`front`)**: apunta al primer elemento.
+- **Final (`rear`)**: apunta al último elemento insertado.
+
+Los elementos se **insertan al final** y se **eliminan desde el frente**.
+
+**Operaciones fundamentales**
+
+| Operación   | Función                                              |
+|-------------|------------------------------------------------------|
+| `push()`    | Inserta un elemento al final de la cola              |
+| `pop()`     | Elimina el elemento del frente                       |
+| `front()`   | Retorna el valor del primer elemento sin eliminarlo  |
+| `empty()`   | Verifica si la cola está vacía                       |
+
+**Características principales**
+
+- **Acceso limitado**: solo se puede acceder al elemento en el frente.
+- **Orden estricto**: el primer elemento en entrar es el primero en salir.
+- Se pueden implementar con `arrays`, `listas enlazadas` o clases estándar como `queue`.
+
+**Ejemplo**
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> cola;
+
+    cola.push(10); 
+    cola.push(20); 
+    cola.push(30); 
+
+    cout << "Elemento al frente: " << cola.front() << endl;
+
+    cola.pop(); 
+
+    cout << "Nuevo frente: " << cola.front() << endl;
+
+    return 0;
+}
+```
+**Explicación**   
+1. 
+```cpp
+queue<int> cola;
+```
+Se declara una cola de enteros llamada cola.
+2. 
+```cpp
+  cola.push(10); // Entra 10
+    cola.push(20); // Entra 20
+    cola.push(30); // Entra 30
+```
+Se insertan elementos al final de la cola con la función push():    
+Primero entra el 10 → cola = [10]  
+Luego el 20 → cola = [10, 20]  
+Luego el 30 → cola = [10, 20, 30]
+
+3. 
+```cpp 
+cout << "Elemento al frente: " << cola.front() << endl;
+```
+Se imprime el primer elemento de la cola, es decir, el que va a salir primero.  
+Salida: Elemento al frente: 10
+
+4. 
+```cpp
+cola.pop(); // Sale 10
+```
+Se elimina el elemento al frente de la cola, que es el 10.  
+Ahora la cola queda: [20, 30]
+
+5. 
+```cpp 
+cout << "Nuevo frente: " << cola.front() << endl;
+```
+Se vuelve a mostrar el primer elemento de la cola.  
+Salida: Nuevo frente: 20
+
+**Practica 1:**  Promedio de números.
+```cpp 
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> numeros;
+    int n, valor;
+    int suma = 0;
+
+    cout << "¿Cuántos números desea ingresar? ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Ingrese un número: ";
+        cin >> valor;
+        numeros.push(valor);
+        suma += valor;
+    }
+
+    double promedio = (double)suma / n;
+
+    cout << "Promedio: " << promedio << endl;
+    return 0;
+}
+```
+**Ejecución**  
+¿Cuántos números desea ingresar? 3  
+Ingrese un número: 5  
+Ingrese un número: 10  
+Ingrese un número: 15  
+Promedio: 10 
+ 
+**Práctica 2:** Reordenar elementos.
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    queue<int> cola;
+    int n, valor;
+
+    cout << "Ingrese la cantidad de elementos: ";
+    cin >> n;
+
+    for (int i = 0; i < n; i++) {
+        cout << "Elemento " << i + 1 << ": ";
+        cin >> valor;
+        cola.push(valor);
+    }
+
+    // Mover los dos primeros al final
+    if (n >= 2) {
+        cola.push(cola.front());
+        cola.pop();
+        cola.push(cola.front());
+        cola.pop();
+    }
+
+    // Mostrar elementos
+    cout << "Cola final: ";
+    while (!cola.empty()) {
+        cout << cola.front() << " ";
+        cola.pop();
+    }
+
+    cout << endl;
+    return 0;
+}
+```
+**Ejecución**  
+Ingrese la cantidad de elementos: 5  
+Elemento 1: 10  
+Elemento 2: 20  
+Elemento 3: 30  
+Elemento 4: 40  
+Elemento 5: 50  
+Cola final: 30 40 50 10 20
+
+# 13. Recursividad 
+La recursión consiste en que una función se llame a sí misma para resolver un problema. Se utiliza cuando un problema puede dividirse en subproblemas más pequeños del mismo tipo.
+
+Una función recursiva descompone el problema en partes más simples, resuelve esas partes y luego combina los resultados para obtener la solución final.
+
+**13.1 Estructura de una función recursiva**
+```cpp
+tipo nombre_funcion(parámetros) {
+    if (condición_base) {
+        return valor_base;
+    } else {
+        return llamada_recursiva; // con valores reducidos
+    }
+}
+```
+**Donde:**
+
+- `condición_base`: condición que detiene la recursión.
+- `valor_base`: resultado que se devuelve cuando se llega a la condición base.
+- `llamada_recursiva`: llamada a la misma función con parámetros modificados.
+
+**13.2 Características importantes de la recursividad**
+
+- Utiliza la **pila de ejecución del sistema** para almacenar cada llamada pendiente.
+- Cada llamada recursiva genera un **nuevo contexto de ejecución**.
+- Finaliza cuando se alcanza el **caso base**.
+
+**13.3 Funcionamiento interno de la recursividad**
+
+Cada vez que una función se llama a sí misma:
+
+- Se guarda su estado (**parámetros y variables**) en la **pila de llamadas**.
+- Se ejecuta una **nueva instancia** de la función.
+- Al llegar al **caso base**, se empiezan a resolver las llamadas en **orden inverso** (desde la última hacia la primera).
+
+Este mecanismo se llama **desenrollar la recursión**.
+
+**13.4 Tipos de recursión**
+
+- **Recursión directa**: cuando una función se llama a sí misma directamente.
+
+- **Recursión indirecta**: cuando una función llama a otra, que eventualmente la vuelve a llamar.
+
+- **Recursión lineal**: cuando hay una sola llamada recursiva por ejecución.
+
+- **Recursión múltiple**: cuando una función se llama a sí misma más de una vez en una misma ejecución (como en la serie de Fibonacci).
+
+- **Recursión de cola (tail recursion)**: cuando la llamada recursiva es la **última operación** en la función (optimizable por el compilador).
+
+**Ejemplo** Factorial de un número
+```cpp
+#include <iostream>
+using namespace std;
+
+int factorial(int n) {
+    if (n == 0) return 1;           // Caso base
+    else return n * factorial(n - 1); // Llamada recursiva
+}
+
+int main() {
+    int numero;
+    cout << "Ingrese un número: ";
+    cin >> numero;
+    cout << "Factorial de " << numero << " es: " << factorial(numero) << endl;
+    return 0;
+}
+```
+**Explicación**   
+1. 
+```cpp
+int factorial(int n) {
+```
+Se define una función llamada `factorial` que recibe un entero `n`.
+2. 
+```cpp
+ if (n == 0) return 1;
+```
+Este es el caso base de la recursión:  
+Si n == 0, retorna 1 (porque 0! = 1).
+
+3. 
+```cpp 
+    else return n * factorial(n - 1);
+```
+Esta es la llamada recursiva:
+Si n > 0, entonces el factorial se calcula como:
+```cpp 
+n * factorial(n - 1)
+```
+Por ejemplo, si `n = 3`:
+factorial(3) = 3 * factorial(2)  
+factorial(2) = 2 * factorial(1)  
+factorial(1) = 1 * factorial(0)  
+factorial(0) = 1 ← caso base  
+Entonces:  
+factorial(1) = 1 × 1 = 1  
+factorial(2) = 2 × 1 = 2  
+factorial(3) = 3 × 2 = 6  
+4. 
+```cpp 
+int main() {
+    int numero;
+    cout << "Ingrese un número: ";
+    cin >> numero;
+``` 
+- Se declara una variable numero.
+- Se solicita al usuario que escriba un número, y se guarda en numero.
+5. 
+``` cpp
+cout << "Factorial de " << numero << " es: " << factorial(numero) << endl;
+``` 
+- Se llama a la función factorial(numero) y se muestra el resultado.
+
+**Ejecución**  
+Ingrese un número: 4   
+Factorial de 4 es: 24
+
+**Práctica 1:** Secuencia Fibonacci
+```cpp
+#include <iostream>
+using namespace std;
+
+int fibonacci(int n) {
+    if (n == 0) return 0;
+    else if (n == 1) return 1;
+    else return fibonacci(n - 1) + fibonacci(n - 2);
+}
+
+int main() {
+    int n;
+    cout << "Ingrese un valor n: ";
+    cin >> n;
+
+    cout << "Fibonacci de " << n << " es: " << fibonacci(n) << endl;
+    return 0;
+}
+``` 
+**Ejecución:**  
+n = 6 → Fibonacci(6) = 8
+
+**Práctica 2:** Invertir un número entero
+```cpp
+#include <iostream>
+using namespace std;
+
+void invertir(int n) {
+    if (n < 10) {
+        cout << n;
+    } else {
+        cout << n % 10;
+        invertir(n / 10);
+    }
+}
+
+int main() {
+    int numero;
+    cout << "Ingrese un número: ";
+    cin >> numero;
+
+    cout << "Número invertido: ";
+    invertir(numero);
+    cout << endl;
+    return 0;
+}
+```
+**Ejemplo de ejecución:**  
+Número = 1234 → Resultado: 4321
+
+# 14. Árboles
+Un árbol es una estructura de datos no lineal que organiza la información en forma jerárquica. Está compuesto por nodos conectados entre sí mediante enlaces llamados ramas. Esta estructura permite representar relaciones padre-hijo entre los elementos y se utiliza ampliamente en algoritmos, bases de datos, sistemas de archivos, compiladores, entre otros.
+
+Un árbol es un conjunto de nodos tales que:
+
+- Existe un único nodo llamado raíz (root), que no tiene padre.
+- Cada nodo puede tener cero o más nodos hijos.
+- No existe ningún ciclo dentro de la estructura.
+- Un nodo que no tiene hijos se llama hoja.
+- Todo nodo, excepto la raíz, tiene un único padre.
+
+**Terminología básica de árboles**
+
+| Término           | Definición                                                                 |
+|-------------------|---------------------------------------------------------------------------|
+| **Raíz**          | Primer nodo del árbol (sin padre)                                          |
+| **Nodo**          | Unidad que contiene datos e información de conexión                        |
+| **Padre**         | Nodo que tiene hijos                                                       |
+| **Hijo**          | Nodo descendiente de otro nodo                                             |
+| **Hermano**       | Nodos con el mismo padre                                                   |
+| **Hoja**          | Nodo que no tiene hijos                                                    |
+| **Subárbol**      | Árbol formado por un nodo y sus descendientes                              |
+| **Nivel**         | Distancia del nodo respecto a la raíz (la raíz está en el nivel 0)         |
+| **Altura**        | Número máximo de niveles desde la raíz hasta una hoja                      |
+| **Grado del nodo**| Número de hijos que tiene un nodo                                          |
+| **Grado del árbol**| Grado máximo entre todos los nodos del árbol                             |
+
+**Estructura de nodo**
+```cpp
+struct Nodo {
+    int dato;
+    Nodo* izquierdo;
+    Nodo* derecho;
+};
+```
+Cada nodo contiene:  
+- Un dato (entero, carácter, estructura, etc.).  
+- Un puntero al hijo izquierdo.  
+- Un puntero al hijo derecho.
+
+**Ejemplo:**
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+};
+
+// Crear un nuevo nodo con un valor
+Nodo* nuevoNodo(int valor) {
+    Nodo* nodo = new Nodo();
+    nodo->dato = valor;
+    nodo->izq = nullptr;
+    nodo->der = nullptr;
+    return nodo;
+}
+
+// Insertar un valor en el árbol
+Nodo* insertar(Nodo* raiz, int valor) {
+    if (raiz == nullptr) {
+        return nuevoNodo(valor);
+    }
+
+    if (valor < raiz->dato) {
+        raiz->izq = insertar(raiz->izq, valor);
+    } else if (valor > raiz->dato) {
+        raiz->der = insertar(raiz->der, valor);
+    }
+
+    return raiz;
+}
+
+// Recorrido Inorden: Izquierda → Nodo → Derecha
+void inorden(Nodo* raiz) {
+    if (raiz != nullptr) {
+        inorden(raiz->izq);
+        cout << raiz->dato << " ";
+        inorden(raiz->der);
+    }
+}
+
+int main() {
+    Nodo* raiz = nullptr;
+
+    // Insertando elementos en el árbol
+    raiz = insertar(raiz, 50);
+    raiz = insertar(raiz, 30);
+    raiz = insertar(raiz, 70);
+    raiz = insertar(raiz, 20);
+    raiz = insertar(raiz, 40);
+    raiz = insertar(raiz, 60);
+    raiz = insertar(raiz, 80);
+
+    cout << "Recorrido Inorden del árbol: ";
+    inorden(raiz);
+    cout << endl;
+
+    return 0;
+}
+```
+**Explicación:**   
+1. Estructura del nodo
+```cpp
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+};
+```
+- Cada nodo del árbol contiene:
+- Un dato de tipo int.
+- Un puntero al hijo izquierdo izq.
+- Un puntero al hijo derecho der.
+2. Crear un nuevo nodo
+```cpp
+ Nodo* nuevoNodo(int valor) {
+    Nodo* nodo = new Nodo();
+    nodo->dato = valor;
+    nodo->izq = nullptr;
+    nodo->der = nullptr;
+    return nodo;
+}
+```
+- Esta función reserva memoria dinámica para un nuevo nodo.
+- Asigna el valor recibido (valor) al campo dato.
+- Inicializa sus hijos como nullptr (vacíos).
+
+3. Insertar valores en el árbol
+```cpp 
+   Nodo* insertar(Nodo* raiz, int valor) {
+    if (raiz == nullptr) {
+        return nuevoNodo(valor);
+    }
+
+    if (valor < raiz->dato) {
+        raiz->izq = insertar(raiz->izq, valor);
+    } else if (valor > raiz->dato) {
+        raiz->der = insertar(raiz->der, valor);
+    }
+
+    return raiz;
+}
+```
+- Si la raíz es nula, se crea un nuevo nodo.
+- Si el valor es menor que el del nodo actual, se inserta en el subárbol izquierdo.
+- Si es mayor, se inserta en el subárbol derecho.
+- Esta lógica asegura que se cumpla la propiedad del BST:
+- Subárbol izquierdo < nodo < subárbol derecho
+
+4. Recorrido Inorden
+```cpp 
+void inorden(Nodo* raiz) {
+    if (raiz != nullptr) {
+        inorden(raiz->izq);         // Visita subárbol izquierdo
+        cout << raiz->dato << " ";  // Muestra el dato del nodo actual
+        inorden(raiz->der);         // Visita subárbol derecho
+    }
+}
+
+``` 
+- El recorrido inorden imprime los elementos en orden ascendente.  
+- Se visita:  
+Primero el hijo izquierdo  
+Luego el nodo actual   
+Finalmente el hijo derecho.  
+5. Función main()
+``` cpp
+int main() {
+    Nodo* raiz = nullptr;
+
+    // Insertando elementos en el árbol
+    raiz = insertar(raiz, 50);
+    raiz = insertar(raiz, 30);
+    raiz = insertar(raiz, 70);
+    raiz = insertar(raiz, 20);
+    raiz = insertar(raiz, 40);
+    raiz = insertar(raiz, 60);
+    raiz = insertar(raiz, 80);
+
+    cout << "Recorrido Inorden del árbol: ";
+    inorden(raiz);
+    cout << endl;
+
+    return 0;
+}
+``` 
+- Se crea un puntero raiz y se inicializa con nullptr.
+- Se insertan 7 valores en el árbol en este orden: 50, 30, 70, 20, 40, 60, 80.
+- Luego se imprime el recorrido inorden del árbol, el cual mostrará los valores ordenados.
+
+ **Ejecución**  
+ `20 30 40 50 60 70 80`
+
+**Tipos de árboles**
+
+## 14.1 Árbol Binario Simple
+
+Es un árbol donde cada nodo puede tener como **máximo dos hijos**: uno izquierdo y uno derecho.  
+Sirve como base para estructuras más avanzadas.
+
+- No necesariamente está ordenado.
+- Se utiliza en representaciones **básicas de jerarquías o estructuras**.
+
+**Práctica 1:** Dado el árbol binario simple con los siguientes valores:
+
+         10
+       /  \
+      5    15
+     / \
+    3   7
+
+Mostrar los elementos del árbol usando recorrido inorden.
+
+```cpp 
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+};
+
+Nodo* crearNodo(int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->dato = valor;
+    nuevo->izq = nullptr;
+    nuevo->der = nullptr;
+    return nuevo;
+}
+
+void inorden(Nodo* raiz) {
+    if (raiz != nullptr) {
+        inorden(raiz->izq);
+        cout << raiz->dato << " ";
+        inorden(raiz->der);
+    }
+}
+
+int main() {
+    Nodo* raiz = crearNodo(10);
+    raiz->izq = crearNodo(5);
+    raiz->der = crearNodo(15);
+    raiz->izq->izq = crearNodo(3);
+    raiz->izq->der = crearNodo(7);
+
+    cout << "Recorrido Inorden: ";
+    inorden(raiz);
+    cout << endl;
+
+    return 0;
+}
+```
+**Ejecución**  
+Recorrido Inorden: 3 5 7 10 15
+
+**Práctica 2:** Dado el siguiente árbol binario:
+
+        8
+       / \
+      4   12
+     / \
+    2   6
+
+Contar cuántos nodos hojas tiene el árbol.
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+};
+
+Nodo* crearNodo(int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->dato = valor;
+    nuevo->izq = nullptr;
+    nuevo->der = nullptr;
+    return nuevo;
+}
+
+int contarHojas(Nodo* raiz) {
+    if (raiz == nullptr) return 0;
+    if (raiz->izq == nullptr && raiz->der == nullptr) return 1;
+    return contarHojas(raiz->izq) + contarHojas(raiz->der);
+}
+
+int main() {
+    Nodo* raiz = crearNodo(8);
+    raiz->izq = crearNodo(4);
+    raiz->der = crearNodo(12);
+    raiz->izq->izq = crearNodo(2);
+    raiz->izq->der = crearNodo(6);
+
+    int hojas = contarHojas(raiz);
+    cout << "Cantidad de nodos hoja: " << hojas << endl;
+
+    return 0;
+}
+```
+**Ejecución**  
+Cantidad de nodos hoja: 3
+
+## 14.2 Árbol Binario de Búsqueda (BST)
+
+Es un **árbol binario ordenado**, donde para cada nodo se cumple:
+
+- Todos los elementos del **subárbol izquierdo** son **menores** que el nodo.
+- Todos los elementos del **subárbol derecho** son **mayores** que el nodo.
+
+Esto permite realizar búsquedas, inserciones y eliminaciones eficientes (en tiempo O(log n), si está balanceado).
+
+**Práctica 1:**
+Construya un Árbol Binario de Búsqueda (BST) que almacene los siguientes valores:
+`50, 30, 70, 20, 40, 60, 80`
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+};
+
+Nodo* crearNodo(int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->dato = valor;
+    nuevo->izq = nullptr;
+    nuevo->der = nullptr;
+    return nuevo;
+}
+
+Nodo* insertar(Nodo* raiz, int valor) {
+    if (raiz == nullptr) return crearNodo(valor);
+
+    if (valor < raiz->dato)
+        raiz->izq = insertar(raiz->izq, valor);
+    else if (valor > raiz->dato)
+        raiz->der = insertar(raiz->der, valor);
+
+    return raiz;
+}
+
+bool buscar(Nodo* raiz, int valor) {
+    if (raiz == nullptr) return false;
+    if (raiz->dato == valor) return true;
+    if (valor < raiz->dato)
+        return buscar(raiz->izq, valor);
+    else
+        return buscar(raiz->der, valor);
+}
+
+void inorden(Nodo* raiz) {
+    if (raiz != nullptr) {
+        inorden(raiz->izq);
+        cout << raiz->dato << " ";
+        inorden(raiz->der);
+    }
+}
+
+int main() {
+    Nodo* raiz = nullptr;
+    int valores[] = {50, 30, 70, 20, 40, 60, 80};
+
+    for (int valor : valores)
+        raiz = insertar(raiz, valor);
+
+    cout << "Recorrido Inorden del BST: ";
+    inorden(raiz);
+    cout << endl;
+
+    int buscar_valor;
+    cout << "Ingrese un número a buscar: ";
+    cin >> buscar_valor;
+
+    if (buscar(raiz, buscar_valor))
+        cout << "El número SÍ está en el árbol.\n";
+    else
+        cout << "El número NO está en el árbol.\n";
+
+    return 0;
+}
+```
+**Ejecución**
+
+Recorrido Inorden del BST: 20 30 40 50 60 70 80  
+Ingrese un número a buscar: 40  
+El número SÍ está en el árbol.  
+
+**Práctica 2:** Utilizando la estructura std::set, realizar las siguientes operaciones:
+
+1. Insertar los valores:  
+`50, 30, 70, 20, 40, 60, 80` 
+2. Imprimir los valores del conjunto en orden ascendente (equivalente al recorrido inorden de un árbol binario de búsqueda).
+```cpp
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+    set<int> bst;
+
+    // 1. Insertar los valores
+    bst.insert(50);
+    bst.insert(30);
+    bst.insert(70);
+    bst.insert(20);
+    bst.insert(40);
+    bst.insert(60);
+    bst.insert(80);
+
+    // 2. Mostrar los elementos en orden ascendente
+    cout << "Recorrido Inorden del BST (usando std::set): ";
+    for (int valor : bst) {
+        cout << valor << " ";
+    }
+    cout << endl;
+
+    return 0;
+}
+```
+**Ejecución**  
+Recorrido Inorden del BST (usando std::set): 20 30 40 50 60 70 80
+
+
+## 14.3 Árboles Balanceados
+
+Son árboles donde la **altura de los subárboles izquierdo y derecho** de cada nodo difiere como máximo en uno.  
+Esto **evita que el árbol se degrade a una lista lineal**, manteniendo su eficiencia.
+
+**Ejemplo clásico**: Árbol **AVL**, donde se realizan **rotaciones** para mantener el equilibrio después de cada inserción o eliminación.
+
+**Práctica 1:** Crear un árbol binario desbalanceado a la izquierda y aplicar una rotación simple a la derecha para balancearlo. Mostrar el recorrido inorden antes y después de la rotación.
+
+```cpp
+#include <iostream>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+};
+
+// Crear nodo nuevo
+Nodo* crearNodo(int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->dato = valor;
+    nuevo->izq = nullptr;
+    nuevo->der = nullptr;
+    return nuevo;
+}
+
+// Recorrido inorden
+void inorden(Nodo* raiz) {
+    if (raiz != nullptr) {
+        inorden(raiz->izq);
+        cout << raiz->dato << " ";
+        inorden(raiz->der);
+    }
+}
+
+// Rotación simple a la derecha
+Nodo* rotarDerecha(Nodo* y) {
+    Nodo* x = y->izq;
+    Nodo* T2 = x->der;
+
+    x->der = y;
+    y->izq = T2;
+
+    return x;
+}
+
+int main() {
+    Nodo* raiz = crearNodo(30);
+    raiz->izq = crearNodo(20);
+    raiz->izq->izq = crearNodo(10); // Árbol desbalanceado a la izquierda
+
+    cout << "Recorrido Inorden antes de rotar: ";
+    inorden(raiz);
+    cout << endl;
+
+    // Aplicamos rotación
+    raiz = rotarDerecha(raiz);
+
+    cout << "Recorrido Inorden después de rotar: ";
+    inorden(raiz);
+    cout << endl;
+
+    return 0;
+}
+```
+**Ejecución**    
+Recorrido Inorden antes de rotar: 10 20 30  
+Recorrido Inorden después de rotar: 10 20 30
+
+**Práctica 2:** Dado un árbol binario, verificar si está balanceado, es decir, si la diferencia de altura entre los subárboles izquierdo y derecho de cada nodo es como máximo 1.
+```cpp
+#include <iostream>
+#include <cmath>
+using namespace std;
+
+struct Nodo {
+    int dato;
+    Nodo* izq;
+    Nodo* der;
+};
+
+Nodo* crearNodo(int valor) {
+    Nodo* nuevo = new Nodo();
+    nuevo->dato = valor;
+    nuevo->izq = nullptr;
+    nuevo->der = nullptr;
+    return nuevo;
+}
+
+// Altura del árbol
+int altura(Nodo* raiz) {
+    if (raiz == nullptr) return 0;
+    int altIzq = altura(raiz->izq);
+    int altDer = altura(raiz->der);
+    return 1 + max(altIzq, altDer);
+}
+
+// Verificar balance
+bool estaBalanceado(Nodo* raiz) {
+    if (raiz == nullptr) return true;
+
+    int altIzq = altura(raiz->izq);
+    int altDer = altura(raiz->der);
+
+    int diferencia = abs(altIzq - altDer);
+
+    return (diferencia <= 1)
+        && estaBalanceado(raiz->izq)
+        && estaBalanceado(raiz->der);
+}
+
+int main() {
+    Nodo* raiz = crearNodo(40);
+    raiz->izq = crearNodo(20);
+    raiz->der = crearNodo(60);
+    raiz->izq->izq = crearNodo(10);
+    raiz->izq->der = crearNodo(30);
+
+    if (estaBalanceado(raiz))
+        cout << "El árbol está balanceado" << endl;
+    else
+        cout << "El árbol NO está balanceado" << endl;
+
+    return 0;
+}
+```
+**Ejecución**  
+El árbol está balanceado
+
+## 14.4 Árboles B y B+
+
+Se utilizan en **sistemas de bases de datos y archivos**.
+
+- **Árbol B**: Árbol de búsqueda generalizado donde cada nodo puede tener **múltiples claves e hijos**.  
+  - Mantiene los datos ordenados.  
+  - Permite **búsquedas, inserciones y eliminaciones** en tiempo **logarítmico**.
+
+- **Árbol B+**: Variante del árbol B donde:
+  - Los **datos reales** solo se almacenan en las **hojas**.
+  - Las hojas están **enlazadas secuencialmente**, lo que **facilita las búsquedas por rango**.
+
+Son altamente eficientes para operaciones en **disco** o **almacenamiento externo**.
+
+**Práctica 1:** Crear un nodo de un árbol B que permita almacenar hasta 3 claves enteras. Luego, ingresar manualmente 3 valores y almacenarlos en orden dentro del nodo. Finalmente, mostrar las claves ingresadas.
+
+```cpp
+#include <iostream>
+#include <algorithm>
+using namespace std;
+
+struct NodoB {
+    int claves[3];
+    int n; // cantidad de claves utilizadas
+};
+
+// Insertar clave en orden dentro del nodo
+void insertarClave(NodoB &nodo, int valor) {
+    if (nodo.n < 3) {
+        nodo.claves[nodo.n] = valor;
+        nodo.n++;
+
+        // Ordenar las claves
+        for (int i = 0; i < nodo.n - 1; i++) {
+            for (int j = i + 1; j < nodo.n; j++) {
+                if (nodo.claves[i] > nodo.claves[j]) {
+                    int aux = nodo.claves[i];
+                    nodo.claves[i] = nodo.claves[j];
+                    nodo.claves[j] = aux;
+                }
+            }
+        }
+    }
+}
+
+void mostrarClaves(NodoB nodo) {
+    cout << "Claves almacenadas: ";
+    for (int i = 0; i < nodo.n; i++) {
+        cout << nodo.claves[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    NodoB nodo;
+    nodo.n = 0;
+
+    insertarClave(nodo, 40);
+    insertarClave(nodo, 10);
+    insertarClave(nodo, 20);
+
+    mostrarClaves(nodo);
+
+    return 0;
+}
+```
+**Ejecución**  
+Claves almacenadas: 10 20 40
+
+**Práctica 2:** Crear un nodo B que admite hasta 3 claves. Ingresar valores uno por uno e indicar si el nodo se encuentra lleno (es decir, si ya no puede almacenar más claves).
+```cpp
+#include <iostream>
+using namespace std;
+
+struct NodoB {
+    int claves[3];
+    int n;
+};
+
+bool estaLleno(NodoB nodo) {
+    return nodo.n == 3;
+}
+
+void insertarClave(NodoB &nodo, int valor) {
+    if (!estaLleno(nodo)) {
+        nodo.claves[nodo.n] = valor;
+        nodo.n++;
+    } else {
+        cout << "El nodo ya está lleno. No se puede insertar " << valor << endl;
+    }
+}
+
+int main() {
+    NodoB nodo;
+    nodo.n = 0;
+
+    insertarClave(nodo, 5);
+    insertarClave(nodo, 15);
+    insertarClave(nodo, 25);
+    insertarClave(nodo, 35); // esta no debería entrar
+
+    cout << "Estado del nodo: ";
+    if (estaLleno(nodo)) {
+        cout << "Lleno" << endl;
+    } else {
+        cout << "Aún hay espacio" << endl;
+    }
+
+    return 0;
+}
+```
+**Ejecución**  
+El nodo ya está lleno. No se puede insertar 35  
+Estado del nodo: Lleno
+
+## 14.5 Árbol Heap (Montículo)
+
+Es un **árbol completo** que cumple la **propiedad de montículo**:
+
+- En un **Max-Heap**, el valor de cada nodo es **mayor o igual** que el de sus hijos.
+- En un **Min-Heap**, el valor de cada nodo es **menor o igual** que el de sus hijos.
+
+Usos principales:
+- **Algoritmos de prioridad**
+- Implementación de **colas de prioridad**
+- **HeapSort** (algoritmo de ordenamiento)
+**Práctica 1:** Crear una función que transforme un arreglo de enteros en un Max-Heap. Mostrar el arreglo antes y después de aplicar heapify.
+```cpp
+#include <iostream>
+using namespace std;
+
+// Reorganiza el subárbol con raíz en i para cumplir propiedad de Max-Heap
+void heapify(int A[], int n, int i) {
+    int mayor = i;
+    int izq = 2 * i + 1;
+    int der = 2 * i + 2;
+
+    if (izq < n && A[izq] > A[mayor]) mayor = izq;
+    if (der < n && A[der] > A[mayor]) mayor = der;
+
+    if (mayor != i) {
+        int temp = A[i];
+        A[i] = A[mayor];
+        A[mayor] = temp;
+
+        heapify(A, n, mayor);
+    }
+}
+
+// Construye un Max-Heap desde un arreglo
+void construirHeap(int A[], int n) {
+    for (int i = n / 2 - 1; i >= 0; i--) {
+        heapify(A, n, i);
+    }
+}
+
+// Muestra el arreglo
+void mostrar(int A[], int n) {
+    for (int i = 0; i < n; i++) {
+        cout << A[i] << " ";
+    }
+    cout << endl;
+}
+
+int main() {
+    int A[] = {20, 15, 8, 10, 5, 7, 6};
+    int n = 7;
+
+    cout << "Arreglo original: ";
+    mostrar(A, n);
+
+    construirHeap(A, n);
+
+    cout << "Max-Heap construido: ";
+    mostrar(A, n);
+
+    return 0;
+}
+```
+**Ejecución**   
+Arreglo original: 20 15 8 10 5 7 6  
+Max-Heap construido: 20 15 8 10 5 7 6  
+ 
+**Práctica 2:** Utilizar la estructura priority_queue de la biblioteca estándar de C++ para simular el comportamiento de un Max-Heap. Insertar los siguientes valores: `20, 15, 30, 5`
+Luego, mostrar:  
+1. El valor máximo almacenado (elemento en la cima del heap).  
+2. Todos los elementos del heap, extrayéndolos uno por uno en orden descendente.
+```cpp
+#include <iostream>
+#include <queue>
+using namespace std;
+
+int main() {
+    priority_queue<int> heap;
+
+    heap.push(20);
+    heap.push(15);
+    heap.push(30);
+    heap.push(5);
+
+    cout << "Elemento mayor (top): " << heap.top() << endl;
+
+    cout << "Elementos del heap (de mayor a menor): ";
+    while (!heap.empty()) {
+        cout << heap.top() << " ";
+        heap.pop();
+    }
+    cout << endl;
+
+    return 0;
+}
+```
+**Ejecución**
+Elemento mayor (top): 30  
+Elementos del heap (de mayor a menor): 30 20 15 5
+
+
+## 14.6 Árbol Rojo-Negro
+
+Es un **árbol binario de búsqueda auto-balanceado** donde cada nodo tiene un **color** (rojo o negro) y se cumplen ciertas reglas que garantizan el equilibrio del árbol.
+
+Características clave:
+- Las operaciones de **inserción**, **eliminación** y **búsqueda** se realizan en **O(log n)**.
+- **Requiere menos rotaciones** que un árbol AVL.
+- Muy utilizado en bibliotecas estándar, como:
+  - `std::map`
+  - `std::set` 
+
+**Práctica 1:**
+Definir la estructura de un nodo para un Árbol Rojo-Negro, que incluya:  
+- Un campo entero para almacenar el valor.  
+- Un campo de color (rojo o negro).  
+- Punteros a hijo izquierdo, derecho y padre.  
+Luego, crear e imprimir un nodo de valor 10 de color rojo.
+```cpp
+#include <iostream>
+using namespace std;
+
+enum Color { ROJO, NEGRO };
+
+struct NodoRN {
+    int dato;
+    Color color;
+    NodoRN* izq;
+    NodoRN* der;
+    NodoRN* padre;
+};
+
+NodoRN* crearNodo(int valor) {
+    NodoRN* nuevo = new NodoRN();
+    nuevo->dato = valor;
+    nuevo->color = ROJO;
+    nuevo->izq = nullptr;
+    nuevo->der = nullptr;
+    nuevo->padre = nullptr;
+    return nuevo;
+}
+
+void mostrarNodo(NodoRN* nodo) {
+    cout << "Dato: " << nodo->dato << endl;
+    cout << "Color: " << (nodo->color == ROJO ? "Rojo" : "Negro") << endl;
+}
+
+int main() {
+    NodoRN* raiz = crearNodo(10);
+    mostrarNodo(raiz);
+    return 0;
+}
+```
+**Ejecución**  
+Dato: 10  
+Color: Rojo
+
+**Práctica 2:** Utilizar la estructura std::set para almacenar claves enteras. Insertar los siguientes valores:
+`40, 10, 60, 20, 50`  
+Luego, imprimir los elementos ordenados y verificar si el número 50 se encuentra en el conjunto.  
+Nota: std::set implementa internamente un árbol rojo-negro balanceado.
+
+```cpp
+#include <iostream>
+#include <set>
+using namespace std;
+
+int main() {
+    set<int> arbol;
+
+    arbol.insert(40);
+    arbol.insert(10);
+    arbol.insert(60);
+    arbol.insert(20);
+    arbol.insert(50);
+
+    cout << "Elementos en orden: ";
+    for (int x : arbol) {
+        cout << x << " ";
+    }
+    cout << endl;
+
+    if (arbol.find(50) != arbol.end()) {
+        cout << "El número 50 sí está en el árbol." << endl;
+    } else {
+        cout << "El número 50 no está en el árbol." << endl;
+    }
+
+    return 0;
+}
+```
+**Ejecución**   
+Elementos en orden: 10 20 40 50 60  
+El número 50 sí está en el árbol.
+
+#  Conclusión
+
+Este trabajo ha sido desarrollado con el objetivo de repasar y reforzar los principales temas del curso de estructuras de datos, partiendo desde los fundamentos básicos de la programación en C++, como operadores, funciones y arreglos, hasta llegar a estructuras más complejas y específicas como listas enlazadas, pilas, colas, árboles y montículos.
+
+Cada capítulo ha sido elaborado de forma ordenada, incluyendo teoría explicada, ejemplos claros y ejercicios resueltos paso a paso.
+
+Durante el desarrollo del documento he podido aplicar muchos de los conceptos vistos en clase y darles una estructura clara que también puede servir como material de repaso para mí o para otros compañeros. Me ayudó a practicar bastante la lógica, la implementación manual y a tener una visión más completa de cómo se manejan los datos en memoria.
+
+Con este trabajo concluyo el desarrollo de los temas propuestos en el curso, cumpliendo con los objetivos planteados. 
+
+**Trabajo elaborado por:** Ruth Karina Apaza Solis  
+**Presentado al curso de:** Estructuras de Datos  
+**Escuela Profesional de Estadística e Informática – 2025**  
+
+
+
+
 
 
